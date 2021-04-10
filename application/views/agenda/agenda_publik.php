@@ -8,11 +8,8 @@
           <table class="table table-bordered table-striped" id="publicTable">
             <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Tanggal</th>
-                  <th>Acara</th>
-                  <th>Tema</th>
-                  <th>Pimpinan</th>
+                  <th width="5%">No</th>
+                  <th width="95%">Acara</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,16 +22,13 @@
                     <p><?= $no++?></p>
                   </td>                  
                   <td scope="row">
-                    <p><?= date("d - m - Y",strtotime($data->tgl))?></p>
-                  </td>
-                  <td scope="row">
-                    <p><?= $data->acara?></p>
-                  </td>
-                  <td scope="row">
-                    <p><?= $data->tema?></p>
-                  </td>
-                  <td scope="row">
-                    <p><?= $data->pimpinan?></p>
+                    <p>
+                      <?= date("d- m-Y",strtotime($data->tgl))?><br>
+                      <small class="badge badge-warning"><?= $data->acara?></small><br>
+                      <?= $data->tema?><br>
+                      <small><?= $data->pimpinan?></small>
+                    </p>
+                    <p></p>
                   </td>
                 </tr>
               <?php }?>

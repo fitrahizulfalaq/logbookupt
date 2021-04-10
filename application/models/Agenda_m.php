@@ -23,6 +23,7 @@ class Agenda_m extends CI_Model {
   {
     $this->db->from('tb_agenda');
     $this->db->like('tgl',date("Y-m"));
+    $this->db->where('tgl >=',date("Y-m-d"));
     $this->db->order_by('tgl',"desc");
     $query = $this->db->get();
     return $query;
