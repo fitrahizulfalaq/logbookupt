@@ -96,6 +96,12 @@
             <i class="nav-icon fas fa-leaf"></i><p>Link</p></a>
           </li>
           <?php } ?>
+          <?php if ($this->fungsi->hitung_rows("akses_agenda","user_id",$this->session->id) != null or $this->session->tipe_user == '4') { ?>
+          <li class="nav-item">            
+            <a href="<?=site_url('agenda')?>" class="nav-link <?=$this->uri->segment(1) == 'agenda' ? "active" : ""?>">
+            <i class="nav-icon fas fa-leaf"></i><p>Agenda</p></a>
+          </li>
+          <?php } ?>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

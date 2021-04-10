@@ -22,4 +22,10 @@ class Action extends CI_Controller {
       echo json_encode($data);
   }
 
+  function get_kelurahan(){
+      $id=$this->input->post('id');
+      $data=$this->db->query("SELECT * FROM villages WHERE district_id='$id'")->result();
+      echo json_encode($data);
+  }
+
 }
