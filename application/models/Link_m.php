@@ -104,6 +104,9 @@ class Link_m extends CI_Model {
 
   function hapus($id){
 
+    $this->db->where('link_id', $id);
+    $this->db->delete('tmp_link_hits');
+    
     $this->db->where('id', $id);
     $this->db->delete('tb_link');
 
