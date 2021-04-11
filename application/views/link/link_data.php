@@ -16,10 +16,10 @@
           <table class="table table-bordered table-striped" id="table">
             <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Kode</th>
-                  <th>Link</th>
-                  <th>#</th>
+                  <th width="5%">No</th>
+                  <th width="35%">Kode</th>
+                  <th width="5%">Hits</th>
+                  <th width="25%">#</th>
                 </tr>
             </thead>
             <tbody>

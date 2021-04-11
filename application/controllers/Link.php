@@ -45,7 +45,7 @@ class Link extends CI_Controller {
             $row = array();
             $row[] = $no;
             $row[] = $field->kode;
-            $row[] = $field->link;
+            $row[] = $this->fungsi->hitung_rows("tmp_link_hits","id",$field->id);
             $row[] = '<a href="'.$field->link.'" class="btn btn-success btn-xs" target="_blank"><i class="fas fa-globe"></i> Lihat</a>
             		  <a href="'.base_url("link/edit/".$field->id).'" class="btn btn-info btn-xs"><i class="fas fa-edit"></i> Edit</a>
             		  <a href="'.base_url("link/hapus/".$field->id).'" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i> Hapus</a>
