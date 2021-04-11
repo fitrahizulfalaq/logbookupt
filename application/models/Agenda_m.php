@@ -34,7 +34,7 @@ class Agenda_m extends CI_Model {
   var $table = 'tb_agenda'; //nama tabel dari database
   var $column_order = array(null, 'kode','acara'); //field yang ada di table user
   var $column_search = array('kode','acara'); //field yang diizin untuk pencarian 
-  var $order = array('id' => 'asc'); // default order 
+  var $order = array('tgl' => 'desc'); // default order 
 
   private function _get_datatables_query()
   {
