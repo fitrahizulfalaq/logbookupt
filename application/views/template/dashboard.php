@@ -82,24 +82,24 @@
           <li class="nav-header">FITUR</li>
           <li class="nav-item">            
             <a href="<?=site_url('log_book')?>" class="nav-link <?=$this->uri->segment(1) == 'log_book' ? "active" : ""?>">
-            <i class="nav-icon fas fa-leaf"></i><p>Log Book</p></a>
+            <i class="nav-icon fas fa-book-reader"></i><p>Log Book</p></a>
           </li>
           <?php if ($this->fungsi->hitung_rows("akses_notulensi","user_id",$this->session->id) != null or $this->session->tipe_user == '4') { ?>
           <li class="nav-item">            
             <a href="<?=site_url('notulensi')?>" class="nav-link <?=$this->uri->segment(1) == 'notulensi' ? "active" : ""?>">
-            <i class="nav-icon fas fa-leaf"></i><p>Notulensi</p></a>
+            <i class="nav-icon fas fa-book-open"></i><p>Notulensi</p></a>
           </li>
           <?php } ?>
           <?php if ($this->fungsi->hitung_rows("akses_link","user_id",$this->session->id) != null or $this->session->tipe_user == '4') { ?>
           <li class="nav-item">            
             <a href="<?=site_url('link')?>" class="nav-link <?=$this->uri->segment(1) == 'link' ? "active" : ""?>">
-            <i class="nav-icon fas fa-leaf"></i><p>Link</p></a>
+            <i class="nav-icon fas fa-globe"></i><p>Link</p></a>
           </li>
           <?php } ?>
           <?php if ($this->fungsi->hitung_rows("akses_agenda","user_id",$this->session->id) != null or $this->session->tipe_user == '4') { ?>
           <li class="nav-item">            
             <a href="<?=site_url('agenda')?>" class="nav-link <?=$this->uri->segment(1) == 'agenda' ? "active" : ""?>">
-            <i class="nav-icon fas fa-leaf"></i><p>Agenda</p></a>
+            <i class="nav-icon fas fa-book"></i><p>Agenda</p></a>
           </li>
           <?php } ?>
         </ul>
