@@ -24,6 +24,7 @@
                   <td scope="row">
                     <p>
                       <?= date("d- m-Y",strtotime($data->tgl))?><br>
+                      <small><?= $data->waktu_mulai?> s.d. <?= $data->waktu_selesai?></small><br>
                       <small class="badge badge-warning"><?= $data->acara?></small><br>
                       <?= $data->tema != null ? $data->tema : "<i>Belum ada tema</i>"?><br>
                       <small><?= $data->pimpinan?></small>
