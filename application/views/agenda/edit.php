@@ -109,7 +109,7 @@
                 <input type="text" class="form-control" name="peserta" placeholder="Koperasi & UKM" value="<?= $this->input->post('peserta') ?? $row->peserta;?>" required>
               </div>                            
               <?php echo form_error('peserta')?>                        
-            </div>
+            </div>            
             <div class="form-group">
               <label>Penanggung Jawab</label>
               <div class="input-group mb-3">
@@ -121,6 +121,19 @@
                 <input type="text" class="form-control" name="pimpinan" placeholder="Ex: Drs. Maris Abdul Muluk, M.Si" value="<?= $this->input->post('pimpinan') ?? $row->pimpinan;?>" required>
               </div>                            
               <?php echo form_error('pimpinan')?>                        
+            </div>
+            <hr>
+            <div class="form-group">
+              <label>Total Peserta</label>
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-users"></span>
+                  </div>
+                </div>
+                <input type="text" class="form-control" name="total_peserta" placeholder="90" value="<?= $this->input->post('total_peserta') ?? $row->total_peserta;?>" required>
+              </div>                            
+              <?php echo form_error('total_peserta')?>                        
             </div>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" required>
