@@ -25,6 +25,7 @@ class Agenda_m extends CI_Model {
     $this->db->like('tgl',date("Y-m"));
     $this->db->where('tgl >=',date("Y-m-d"));
     $this->db->order_by('tgl',"asc");
+    $this->db->order_by('waktu_mulai',"asc");
     $query = $this->db->get();
     return $query;
   }
