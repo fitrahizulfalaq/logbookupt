@@ -8,8 +8,8 @@
           <span class="info-box-icon bg-info"><i class="far fa-flag"></i></span>
           <div class="info-box-content">
             <span class="info-box-text">Total Peserta</span>
-            <span class="info-box-number"><?= $this->fungsi->countValue("tb_agenda","total_peserta");?> peserta dari <?= $this->fungsi->pilihan_advanced("tb_agenda","tgl <=",date("Y-m-d"))->num_rows();?> pelatihan</span>
-            <span class="info-box-text"><?= $this->fungsi->pilihan_advanced("tb_agenda","tgl >=",date("Y-m-d"))->num_rows();?> / <?= $this->fungsi->pilihan("tb_agenda")->num_rows();?> terlaksana</span>
+            <span class="info-box-number"><?= $this->fungsi->countValue("tb_agenda","total_peserta");?> peserta dari <?= $this->fungsi->pilihan_advanced("tb_agenda","tgl <=",date("Y-m-d"))->num_rows();?> agenda</span>
+            <span class="info-box-text"><?= $this->fungsi->pilihan_advanced("tb_agenda","tgl >",date("Y-m-d"))->num_rows();?> / <?= $this->fungsi->pilihan("tb_agenda")->num_rows();?> terlaksana</span>
 
           </div>
           <!-- /.info-box-content -->
