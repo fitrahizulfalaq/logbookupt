@@ -2,6 +2,27 @@
 <section class="content">
   <div class="container-fluid">
     <div class="row">
+      <!-- /.col -->
+      <div class="col-md-12 col-sm-12 col-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-info"><i class="far fa-flag"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Total Peserta</span>
+            <span class="info-box-number"><?= $this->fungsi->countValue("tb_agenda","total_peserta");?> peserta dari <?= $this->fungsi->pilihan_advanced("tb_agenda","tgl <=",date("Y-m-d"))->num_rows();?> pelatihan</span>
+            <span class="info-box-text"><?= $this->fungsi->pilihan_advanced("tb_agenda","tgl >=",date("Y-m-d"))->num_rows();?> / <?= $this->fungsi->pilihan("tb_agenda")->num_rows();?> terlaksana</span>
+
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+    </div>
+  </div>
+</section>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
       <div class="col-md-12">
         <div class="callout callout-info">
           <div class="table-responsive">

@@ -96,6 +96,12 @@ class Fungsi {
 		return $query;
 	}
 
+	function countValue($tabel,$kolom) {
+		$this->ci->db->select_sum($kolom);		
+		$query = $this->ci->db->get($tabel)->row($kolom);
+		return $query;
+	}
+
 	// Fungsi
 	function check_access_user($tabel,$id) {
 		$this->ci->db->where("user_id",$id);
