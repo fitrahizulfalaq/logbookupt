@@ -10,7 +10,9 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$data['menu'] = "Dashboard E-UPT";		
+		$this->load->model("agenda_m");
+		$data['menu'] = "Dashboard E-UPT";
+		$data['row'] = $this->agenda_m->getThisDay();		
 		$this->templateadmin->load('template/dashboard','page/beranda',$data);
 	}
 }

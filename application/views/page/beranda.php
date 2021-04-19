@@ -1,7 +1,8 @@
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid">    
-    <div class="row">      
+      <?php $this->load->view("template/message/agenda_terbaru",$row); ?>      
+    <div class="row">
       <!-- Menu-->
       <div class="col-lg-2 col-4">      	
         <!-- small card -->
