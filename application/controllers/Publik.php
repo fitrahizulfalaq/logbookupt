@@ -21,7 +21,7 @@ class Publik extends CI_Controller {
         $query = $this->notulensi_m->get_by_kode($kode);
         if ($query->num_rows() > 0) {
             $data['row'] = $query->row();
-            $data['menu'] = "Hasil Notulensi";          
+            $data['menu'] = "Hasil Notulensi : ".$query->row("acara");          
             $this->templateadmin->load('template/publik','notulensi/notulensi_publik',$data);
         } else {
             echo "<script>alert('Data Tidak Ditemukan');</script>";
