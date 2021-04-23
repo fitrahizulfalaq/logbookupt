@@ -23,7 +23,11 @@
   <!-- Aous -->
   <link rel="stylesheet" href="<?=base_url()?>/assets/plugins/aos/aos.css">
   <?php $this->load->view("script/header_function")?>
-  <?php $this->load->view("script/".$header_script)?>
+  <?php 
+    if (isset($header_script)) {
+      $this->load->view("script/".$header_script);
+    }
+  ?>
 </head>
 
 <body class="hold-transition layout-top-nav layout-fixed layout-footer-fixed pace-warning">
@@ -112,7 +116,11 @@
 <script src="<?=base_url()?>/assets/dist/js/pages/dashboard2.js"></script>
 
 <?php $this->load->view("script/footer_function")?>
-<?php $this->load->view("script/".$footer_script)?>
+<?php 
+    if (isset($footer_script)) {
+      $this->load->view("script/".$footer_script);
+    }
+  ?>
 </body>
 </html>
 
