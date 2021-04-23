@@ -38,4 +38,9 @@ function check_right_user_edit($id_edit, $user_id) {
 	}
 }
 
+function test($var) {	
+	var_dump($var);
+	die();
+}
+
 ?>

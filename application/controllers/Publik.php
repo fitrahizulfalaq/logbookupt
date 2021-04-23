@@ -38,5 +38,15 @@ class Publik extends CI_Controller {
         $this->templateadmin->load('template/publik','agenda/agenda_publik',$data);	
 	}
 
+	public function sdm()
+	{
+		$data['menu'] = "Profil Pegawai UPT";
+		$data['row'] = $this->fungsi->pilihan("tb_user");
+		$data['header_script'] = "datatables-header";
+		$data['footer_script'] = "datatables-sdm";
+        $this->templateadmin->load('template/publik','user/sdm_publik',$data);	
+
+	}
+
 
 }
