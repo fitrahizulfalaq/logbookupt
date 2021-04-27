@@ -23,7 +23,7 @@ class Link_m extends CI_Model {
   var $table = 'tb_link'; //nama tabel dari database
   var $column_order = array(null, 'kode','link'); //field yang ada di table user
   var $column_search = array('kode','link','kode'); //field yang diizin untuk pencarian 
-  var $order = array('id' => 'asc'); // default order 
+  var $order = array('created' => 'desc', 'id' => 'asc'); // default order 
 
   private function _get_datatables_query()
   {
