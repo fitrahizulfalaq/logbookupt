@@ -30,6 +30,16 @@ class Agenda_m extends CI_Model {
     return $query;
   }
 
+  public function getLast()
+  {
+    $this->db->from('tb_agenda');
+    $this->db->where('tgl >=',date("Y-m-d"));
+    $this->db->order_by('tgl',"asc");
+    $this->db->order_by('waktu_mulai',"asc");
+    $query = $this->db->get();
+    return $query;
+  }
+
   public function getThisDay()
   {
     $this->db->from('tb_agenda');

@@ -33,7 +33,7 @@ class Publik extends CI_Controller {
 	{
         $this->load->model('agenda_m');
 		$data['menu'] = "Agenda Terdekat";
-        $query = $this->agenda_m->getLastMouth();
+        $query = $this->agenda_m->getLast();
         $data['row'] = $query;
         $this->templateadmin->load('template/publik','agenda/agenda_publik',$data);	
 	}
