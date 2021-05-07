@@ -114,6 +114,18 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="<?=base_url()?>/assets/dist/js/pages/dashboard2.js"></script>
+<!-- Select2 -->
+<script src="<?=base_url()?>/assets/plugins/select2/js/select2.full.min.js"></script>
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    });
+  })
+</script>
 
 <?php $this->load->view("script/footer_function")?>
 <?php 
