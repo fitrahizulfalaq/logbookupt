@@ -126,6 +126,7 @@ class Agenda_m extends CI_Model {
     $params['peserta'] =  $post['peserta'];
     $params['acara'] =  $post['acara'];
     $params['tema'] =  $post['tema'];
+    $params['total_peserta'] =  $post['total_peserta'];
     $params['user_id'] =  $this->session->id;
 	  $params['created'] =  date("Y:m:d:h:i:sa");
 

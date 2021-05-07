@@ -120,6 +120,17 @@
               </div>                            
               <?php echo form_error('pimpinan')?>                        
             </div>
+            <div class="form-group">
+              <label>Total Peserta</label>
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-users"></span>
+                  </div>
+                </div>
+                <input type="text" class="form-control" name="total_peserta" placeholder="90" value="<?= $this->input->post('total_peserta') ?? $row->total_peserta;?>" required>
+              </div>                            
+              <?php echo form_error('total_peserta')?>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" required>
               <label class="form-check-label" for="exampleCheck1">Pastikan data sudah benar</label>
