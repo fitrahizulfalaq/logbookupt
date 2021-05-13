@@ -12,3 +12,5 @@
 <script src="<?=base_url()?>/assets/plugins/jszip/jszip.min.js"></script>
 <script src="<?=base_url()?>/assets/plugins/datatables-select/js/dataTables.select.min.js"></script>
 <script src="<?=base_url()?>/assets/plugins/datatables-select/js/select.bootstrap4.min.js"></script>
+
+

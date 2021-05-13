@@ -23,6 +23,11 @@
   <!-- Aous -->
   <link rel="stylesheet" href="<?=base_url()?>/assets/plugins/aos/aos.css">
   <?php $this->load->view("script/header_function")?>
+  <?php 
+    if (isset($header_script)) {
+      $this->load->view("script/".$header_script);
+    }
+  ?>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed pace-warning">
@@ -101,6 +106,10 @@
             <a href="<?=site_url('agenda')?>" class="nav-link <?=$this->uri->segment(1) == 'agenda' ? "active" : ""?>">
             <i class="nav-icon fas fa-book"></i><p>Agenda</p></a>
           </li>
+          <li class="nav-item">            
+            <a href="<?=site_url('presensi')?>" class="nav-link <?=$this->uri->segment(1) == 'presensi' ? "active" : ""?>">
+            <i class="nav-icon fas fa-book"></i><p>Presensi</p></a>
+          </li>
           <?php } ?>
         </ul>
       </nav>
@@ -176,7 +185,23 @@
 <!-- PAGE SCRIPTS -->
 <script src="<?=base_url()?>/assets/dist/js/pages/dashboard2.js"></script>
 
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    });
+  })
+</script>
+
 <?php $this->load->view("script/footer_function")?>
+<?php 
+    if (isset($footer_script)) {
+      $this->load->view("script/".$footer_script);
+    }
+  ?>
 </body>
 </html>
 

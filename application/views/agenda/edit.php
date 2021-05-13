@@ -40,7 +40,6 @@
               <label>Tema</label>
               <div class="input-group mb-3">
                 <input type="text" class="form-control" name="tema" placeholder="Ex: Pembukuan Sederhana Bagi UMKM" value="<?= $this->input->post('tema') ?? $row->tema ?>">
-
             </div>
             <div class="form-group">
               <label>Tanggal</label>
@@ -121,6 +120,16 @@
                 <input type="text" class="form-control" name="pimpinan" placeholder="Ex: Drs. Maris Abdul Muluk, M.Si" value="<?= $this->input->post('pimpinan') ?? $row->pimpinan;?>" required>
               </div>                            
               <?php echo form_error('pimpinan')?>                        
+            </div>
+            <div class="form-group">
+              <label>Kode</label>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="katakunci" placeholder="Ex: Ex: digitalisasiumkm (digunakan juga redirect ke zoom melalui goupt)" value="<?= $this->input->post('katakunci') ?? $row->katakunci ?>">
+            </div>
+            <div class="form-group">
+              <label>Link</label>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="link" placeholder="Ex: Pembukuan Sederhana Bagi UMKM" value="<?= $this->input->post('link') ?? $row->link ?>">
             </div>
             <hr>
             <div class="form-group">

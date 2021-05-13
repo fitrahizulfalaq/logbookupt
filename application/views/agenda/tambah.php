@@ -121,6 +121,16 @@
               <?php echo form_error('pimpinan')?>                        
             </div>
             <div class="form-group">
+              <label>Kode</label> <small>Khusus agenda penting</small>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="katakunci" placeholder="Ex: digitalisasiumkm (digunakan juga redirect ke zoom melalui goupt)" value="<?= set_value('katakunci');?>">
+            </div>
+            <div class="form-group">
+              <label>Link Zoom</label> <small>Isikan buat yang penting saja</small>
+              <div class="input-group mb-3">
+                <input type="link" class="form-control" name="link" placeholder="Link Join Zoom" value="<?= set_value('link');?>">
+            </div>
+            <div class="form-group">
               <label>Total Peserta</label>
               <div class="input-group mb-3">
                 <div class="input-group-append">
@@ -128,7 +138,7 @@
                     <span class="fas fa-users"></span>
                   </div>
                 </div>
-                <input type="text" class="form-control" name="total_peserta" placeholder="90" value="<?= $this->input->post('total_peserta') ?? $row->total_peserta;?>" required>
+                <input type="text" class="form-control" name="total_peserta" placeholder="90" value="" required>
               </div>                            
               <?php echo form_error('total_peserta')?>
             <div class="form-check">

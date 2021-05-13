@@ -46,7 +46,7 @@ class agenda extends CI_Controller {
             $row[] = $no;
             $row[] = date("d - m - Y",strtotime($field->tgl));
             $row[] = $field->acara;
-            $row[] = $field->tema;
+            $row[] = $field->tema." (".$field->total_peserta.")";
             $row[] = $field->pimpinan;
             $row[] = '
             		  <a href="'.base_url("agenda/edit/".$field->id).'" class="btn btn-info btn-xs"><i class="fas fa-edit"></i> Edit</a>
