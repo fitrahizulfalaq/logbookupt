@@ -15,6 +15,7 @@
               <select class="form-control form-control-sm select2" name="kode" required>
                 <option value="<?= set_value('kode');?>">Pilih agenda : <?= set_value('kode');?></option>
                 <?php
+                $this->db->where("katakunci !=",null);
                   foreach ($this->fungsi->pilihan("tb_agenda")->result() as $key => $pilihan) {;
                 ?>
                 <option value="<?= $pilihan->katakunci?>"><?= $pilihan->tema?></option>

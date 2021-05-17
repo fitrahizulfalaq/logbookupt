@@ -23,7 +23,7 @@ class Presensi_m extends CI_Model {
     $this->db->update('tb_peserta',$params);
   }
 
-  public function getByKode($kode = null) 
+  function getByKode($kode = null) 
   {
   	$this->db->order_by("status","asc");
   	$this->db->from('tb_peserta');
