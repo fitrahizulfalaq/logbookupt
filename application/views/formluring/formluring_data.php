@@ -44,7 +44,7 @@
                   </td>
                   <td>                    
                     <!-- <a href="<?= site_url('formluring/cetak/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-info"><i class='fas fa-file-word'></i></a> -->
-                    <a href="<?= site_url('formluring/cetakpdf/'.$data->id);?>" class="btn btn-sm btn-warning"><i class='fas fa-file-pdf'></i></a>
+                    <a href="<?= site_url('formluring/cetakpdf/'.$data->id);?>" target="_blank" class="btn btn-sm btn-warning"><i class='fas fa-file-pdf'></i></a>
                   </td>
                   <td>
                     <a href="<?= site_url('assets/dist/files/formluring/foto/'.$data->foto)?>" target="_blank" class="btn btn-sm btn-info"><i class='fas fa-camera'></i> FOTO</a>
