@@ -21,6 +21,21 @@
   <link rel="stylesheet" href="<?=base_url()?>/assets/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+    #pageloader
+    {
+      background: rgba( 255, 255, 255, 0.8 );
+      display: none;
+      height: 100%;
+      width: 100%;
+    }
+
+    #pageloader img
+    {
+      left: 50%;
+      top: 50%;
+    }
+  </style>
 </head>
 <body class="hold-transition login-page bg-green pace-warning" style="background-image: url(<?= base_url('/assets/dist/img/tiles.jpg')?>); background-repeat: repeat;">
 <div class="login-box">
@@ -53,6 +68,9 @@
           <div class="col-12">
             <button type="submit" name="login" class="btn btn-success btn-block">LOGIN <i class="fas fa-forward"></i></button>
           </div>
+        </div>
+        <div id="pageloader" class="text-center">
+           <img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" alt="processing..." />
         </div>
       </form>
       <!-- /.social-auth-links -->
@@ -125,6 +143,13 @@ $(document).ready(function () {
     }
   });
 });
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+  $("form").on("submit", function(){
+    $("#pageloader").fadeIn(3000);
+  });//submit
+});//document ready
 </script>
 </body>
 </html>

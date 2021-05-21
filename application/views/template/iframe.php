@@ -28,6 +28,21 @@
       $this->load->view("script/".$header_script);
     }
   ?>
+  <style>
+    #pageloader
+    {
+      background: rgba( 255, 255, 255, 0.8 );
+      display: none;
+      height: 100%;
+      width: 100%;
+    }
+
+    #pageloader img
+    {
+      left: 50%;
+      top: 50%;
+    }
+  </style>
 </head>
 
 <body class="hold-transition layout-top-nav layout-footer-fixed">
@@ -73,6 +88,14 @@
       theme: 'bootstrap4'
     });
   })
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  $("form").on("submit", function(){
+    $("#pageloader").fadeIn(3000);
+  });//submit
+});//document ready
 </script>
 
 <?php $this->load->view("script/footer_function")?>
