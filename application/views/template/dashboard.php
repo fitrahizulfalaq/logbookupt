@@ -111,6 +111,22 @@
             <i class="nav-icon fas fa-book"></i><p>Presensi</p></a>
           </li>
           <?php } ?>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link <?=$this->uri->segment(1) == 'formluring' || $this->uri->segment(1) == "pelatihanluring" ? "active" : ""?>"><i class="nav-icon fas fa-users"></i><p>Pelatihan<i class="right fas fa-angle-down"></i></p></a>
+            <ul class="nav nav-treeview">              
+              <li class="nav-item">
+                <a href="<?=site_url('pelatihanluring')?>" class="nav-link <?=$this->uri->segment(1) == 'pelatihanluring' ? "active" : ""?>"><i class="nav-icon fas fa-database"></i><p>Data Pelatihan Luring</p></a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">              
+              <li class="nav-item">            
+                <a href="<?=site_url('formluring')?>" class="nav-link <?=$this->uri->segment(1) == 'formluring' ? "active" : ""?>">
+                <i class="nav-icon fas fa-book"></i><p>Form Luring</p></a>
+              </li>
+            </ul>
+          </li>
+
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -185,6 +201,8 @@
 <!-- PAGE SCRIPTS -->
 <script src="<?=base_url()?>/assets/dist/js/pages/dashboard2.js"></script>
 
+<!-- SELECT2 -->
+<script src="<?=base_url()?>assets/plugins/select2/js/select2.full.min.js"></script>
 <script>
   $(function () {
     //Initialize Select2 Elements

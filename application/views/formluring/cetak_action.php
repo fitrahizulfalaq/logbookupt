@@ -1,6 +1,6 @@
 <?php    
     
-    $document = file_get_contents('application\views\formluring\template\form_' . $row->template . '.rtf');
+    $document = file_get_contents('application\views\formluring\template\form_' . $template . '.rtf');
     // $document = file_get_contents('application\views\formluring\template\-surat_domisili_penduduk.rtf');
 
     $params['[[nama]]'] =  $row->nama;   

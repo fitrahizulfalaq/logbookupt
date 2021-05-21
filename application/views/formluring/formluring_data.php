@@ -3,9 +3,8 @@
   <div class="row">
     <div class="col-12">     
     <div class="col-12">     
-      <?php $this->view('message'); ?>
       <div class="card-header">
-        <a href="<?=base_url("");?>" class="btn btn-sm btn-info float-right"><i class="fas fa-backward"></i> Kembali</a>
+        <a href="<?=base_url("formluring");?>" class="btn btn-sm btn-info float-right"><i class="fas fa-backward"></i> Kembali</a>
       </div>
 
       <div class="card">
@@ -15,14 +14,16 @@
         
         <div class="card-body">
           <div class="table-responsive">
-          <table class="table table-bordered table-striped" id="example2">
+          <table class="table table-bordered table-striped" id="example1">
             <thead>
-            <tr>
-              <th width="5%">no</th>
-              <th width="30%">Pelatihan</th>
+            <tr align="center">
+              <th width="5%">No</th>
+              <th width="20%">Pelatihan</th>
               <th width="25%">Nama</th>
-              <th width="20%">Status</th>
-              <th width="20%">#</th>
+              <th width="10%">Status</th>
+              <th width="10%">Biodata</th>
+              <th width="20%">Keperluan</th>
+              <th width="10%">#</th>
             </tr>
             </thead>
             <tbody>
@@ -32,19 +33,31 @@
               ?>
                 <tr>
                   <td><?= $no++?></td>
-                  <td><?= $data->pelatihan_id ?></td>
+                  <td><?= $this->fungsi->get_deskripsi("tb_pelatihan_luring",$data->pelatihan_id) ?></td>
                   <td>
                     <?= $data->nama?><br>
                     <small><?= $data->nik?></small>                      
                   </td>
                   <td>                    
-                    <?= $data->status == 1 ? '<span class="badge badge-success"> Sudah di Proses </span>' : '<span class="badge badge-warning"> Belum di Proses </span>'?><br>                    
+                    <?= $data->status == "2" ? '<span class="badge badge-success"> Sudah di Cek </span>' : '<span class="badge badge-warning"> Belum di Cek </span>'?><br>                    
                     <?= date('d-m-Y',strtotime($data->created))?>                    
                   </td>
                   <td>                    
-                    <a href="<?= site_url('formluring/acc/'.$data->id);?>" class="btn btn-sm btn-success"><i class='fas fa-check'></i></a>                   
-                    <a href="<?= site_url('formluring/cetak/'.$data->id);?>" class="btn btn-sm btn-info"><i class='fas fa-file-word'></i></a>
+                    <!-- <a href="<?= site_url('formluring/cetak/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-info"><i class='fas fa-file-word'></i></a> -->
                     <a href="<?= site_url('formluring/cetakpdf/'.$data->id);?>" class="btn btn-sm btn-warning"><i class='fas fa-file-pdf'></i></a>
+                  </td>
+                  <td>
+                    <a href="<?= site_url('assets/dist/files/formluring/foto/'.$data->foto)?>" target="_blank" class="btn btn-sm btn-info"><i class='fas fa-camera'></i> FOTO</a>
+                    <a href="<?= site_url('formluring/tampilKtp/'.$data->id);?>" target="_blank" class="btn btn-sm btn-primary"><i class='fas fa-user'></i> KTP</a>
+                    <a href="<?= site_url('formluring/tampilSPT/'.$data->id);?>" target="_blank" class="btn btn-sm btn-secondary"><i class='fas fa-book'></i> SPT</a>
+                  </td>
+                  <td>
+                    <?php if ($data->status == "1") { ?>
+                      <a href="<?= site_url('formluring/acc/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-success"><i class='fas fa-check'></i></a>                  
+                      <a href="<?= site_url('formluring/hapus/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah yakin mau dihapus?')"><i class='fas fa-trash'></i></a>                
+                    <?php } else { ?>
+                      <a href="<?= site_url('formluring/batal/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-warning"><i class='fas fa-ban'></i></a>        
+                    <?php } ?>
                   </td>
                 </tr>
             	 <?php }?>

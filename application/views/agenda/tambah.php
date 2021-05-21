@@ -4,7 +4,7 @@
     <div class="col-12">
       <div class="col-12">
       <div class="card-header">
-        <a href="<?=base_url('');?>" class="btn btn-info float-right btn-sm"><i class="fas fa-backward"></i> Kembali</a>          
+        <a href="<?=base_url('agenda');?>" class="btn btn-info float-right btn-sm"><i class="fas fa-backward"></i> Kembali</a>          
       </div>
       <?php $this->view('message') ?>
       <div class="card card-primary">
