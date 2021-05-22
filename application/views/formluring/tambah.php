@@ -19,14 +19,14 @@
     <div class="form-group">
       <label>NAMA</label>
       <div class="input-group mb-3">
-        <input type="text" name="nama" class="form-control" value="<?= set_value('nama'); ?>" placeholder="Ex: FITRAH IZUL FALAQ" required >
+        <input type="text" name="nama" class="form-control" value="<?= set_value('nama'); ?>" placeholder="Ex: FITRAH IZUL FALAQ" minlength="3" maxlength="50" required >
       </div>
       <?php echo form_error('nama')?>
     </div>
     <div class="form-group">
       <label>NIK</label>
       <div class="input-group mb-3">
-        <input type="text" name="nik" class="form-control" placeholder="Ex: 350xxx" value="<?= set_value('nik'); ?>" required>
+        <input type="text" name="nik" class="form-control" placeholder="Ex: 3561012901950002" value="<?= set_value('nik'); ?>" minlength="16" maxlength="16" required>
       </div>
       <?php echo form_error('nik')?>
     </div>
@@ -34,7 +34,7 @@
       <div class="form-group col-md-6">
         <div class="form-group">
           <label>Tempat Lahir</label>
-          <input type="text" class="form-control" name="tempat_lahir" placeholder="Ex: Kota Malang" required value="<?= set_value('tempat_lahir'); ?>" />
+          <input type="text" class="form-control" name="tempat_lahir" placeholder="Ex: Kota Malang" required value="<?= set_value('tempat_lahir'); ?>" minlength="3" maxlength="30" />
         </div>
         <?php echo form_error('tempat_lahir')?>
       </div>
@@ -104,27 +104,27 @@
     </div>
     <div class="form-group">
       <label>Alamat</label>
-      <textarea class="form-control" name="domisili" rows="4" placeholder="Ex: Jl. Galunggung 25B, Klojen" required><?= set_value('domisili'); ?></textarea>
+      <textarea class="form-control" name="domisili" rows="4" placeholder="Ex: Jl. Galunggung 25B, Klojen" required minlength="15" maxlength="50"><?= set_value('domisili'); ?></textarea>
       <?php echo form_error('domisili')?>
     </div>
     <div class="form-group">
       <label>Kota / Kabupaten Domisili</label>
       <div class="input-group mb-3">
-        <input type="text" name="daerah_asal" class="form-control" placeholder="Ex: Lumajang" value="<?= set_value('daerah_asal'); ?>" required>
+        <input type="text" name="daerah_asal" class="form-control" placeholder="Ex: Lumajang" value="<?= set_value('daerah_asal'); ?>" minlength="3" maxlength="50" required>
       </div>
       <?php echo form_error('daerah_asal')?>
     </div>
     <div class="form-group">
       <label>HP</label>
       <div class="input-group mb-3">
-        <input type="number" name="hp" class="form-control" placeholder="Ex: 081231390340" value="<?= set_value('hp'); ?>" required>
+        <input type="number" name="hp" class="form-control" placeholder="Ex: 081231390340" value="<?= set_value('hp'); ?>" minlength="11" maxlength="13" required>
       </div>
       <?php echo form_error('hp')?>
     </div>
     <div class="form-group">
       <label>Email</label>
       <div class="input-group mb-3">
-        <input type="email" name="email" class="form-control" placeholder="Ex: fitrahizulfalaq@gmail.com" value="<?= set_value('email'); ?>" required>
+        <input type="email" name="email" class="form-control" placeholder="Ex: fitrahizulfalaq@gmail.com" value="<?= set_value('email'); ?>" minlength="10" maxlength="50" required>
       </div>
       <?php echo form_error('email')?>
     </div>
@@ -172,13 +172,13 @@
     <div class="form-group">
       <label>Nama Usaha</label>
       <div class="input-group mb-3">
-        <input type="text" name="nama_usaha" class="form-control" placeholder="Ex: BikinKarya Creative Media" value="<?= set_value('nama_usaha'); ?>" required>
+        <input type="text" name="nama_usaha" class="form-control" placeholder="Ex: BikinKarya Creative Media" value="<?= set_value('nama_usaha'); ?>" minlength="5" maxlength="50" required>
       </div>
       <?php echo form_error('nama_usaha')?>
     </div>
     <div class="form-group">
       <label>Alamat Usaha</label>
-      <textarea class="form-control" name="domisili_usaha" rows="4" placeholder="Ex: Jl. Galunggung 25B, Klojen" required><?= set_value('domisili_usaha'); ?></textarea>
+      <textarea class="form-control" name="domisili_usaha" rows="4" placeholder="Ex: Jl. Galunggung 25B, Klojen" required minlength="15" maxlength="50"><?= set_value('domisili_usaha'); ?></textarea>
       <?php echo form_error('domisili_usaha')?>
     </div>
     <div class="form-group">
@@ -238,7 +238,7 @@
     <div class="form-group">
       <label>Jumlah Tenaga Kerja</label>
       <div class="input-group mb-3">
-        <input type="number" name="jumlah_karyawan" class="form-control" placeholder="Ex: 4" value="<?= set_value('jumlah_karyawan'); ?>" required>
+        <input type="number" name="jumlah_karyawan" class="form-control" placeholder="Ex: 4" value="<?= set_value('jumlah_karyawan'); ?>" required minlength="1" maxlength="6">
       </div>
       <?php echo form_error('jumlah_karyawan')?>
     </div>
@@ -246,7 +246,7 @@
     <div class="form-group">
       <label>Omset</label>
       <div class="input-group mb-3">
-        <input type="number" name="omset" class="form-control" placeholder="Ex: 900000000" value="<?= set_value('omset'); ?>" required>
+        <input type="number" name="omset" class="form-control" placeholder="Ex: 900000000" value="<?= set_value('omset'); ?>" required minlength="6" maxlength="12">
       </div>
       <?php echo form_error('omset')?>
     </div>
@@ -282,7 +282,7 @@
       <div class="input-group mb-3">
         <input type="file" name="ttd" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
-      <small>Buat TTD Digital <a href="https://tools.uptkukm.id/ttd" target="blank">disini</a></small>
+      <small>Buat TTD Digital <a href="https://tools.uptkukm.id/ttd" target="_blank">disini</a></small>
       <?php echo form_error('foto')?>
     </div>            
     <div class="form-check">
