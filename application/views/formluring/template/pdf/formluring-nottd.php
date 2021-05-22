@@ -134,7 +134,7 @@
   </tr>
   <tr>
     <td valign="middle" align="center">
-      <img src="assets/dist/files/formluring/foto/<?= $row->foto ?>" alt="" width="150px" height="200px">
+      <img src="assets/dist/files/formluring/foto/<?= $row->foto ?>" alt="" width="150px" height="260px">
     </td>
     <td valign="top">&nbsp;</td>
     <td colspan="4" valign="top" align="right">
