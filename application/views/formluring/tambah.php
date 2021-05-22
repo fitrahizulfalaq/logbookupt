@@ -262,7 +262,7 @@
     </div>
 
     <div class="form-group">
-      <label>File SPT</label> <small>Maksimal 2Mb (Format : .pdf / foto 1 lembar)</small>
+      <label>File SPT</label> <small>Maksimal 2Mb (Format : .pdf)</small>
       <div class="input-group mb-3">
         <input type="file" name="spt" class="form-control" placeholder="Ex: 4" accept=".pdf" required>
       </div>

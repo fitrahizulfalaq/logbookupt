@@ -124,7 +124,7 @@ class Publik extends CI_Controller {
 
                     //CEK GAMBAR
             $config2['upload_path']          = 'assets/dist/files/formluring/spt/';
-            $config2['allowed_types']        = 'pdf|jpg|png|jpeg';
+            $config2['allowed_types']        = 'pdf';
             $config2['max_size']             = 6000;
             $config2['file_name']            = strtoupper($post['nik'] . " - " . $post['pelatihan_id']);
 
