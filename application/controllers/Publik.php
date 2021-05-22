@@ -156,7 +156,25 @@ class Publik extends CI_Controller {
                     $this->session->set_flashdata('danger',$pesan);
                     redirect('publik/daftarluring');
                 }                           
-            }               
+            }
+
+            //CEK GAMBAR
+            $config4['upload_path']          = 'assets/dist/files/formluring/ttd/';
+            $config4['allowed_types']        = 'jpg|png|jpeg';
+            $config4['max_size']             = 6000;
+            $config4['file_name']            = strtoupper($post['nik'] . " - " . $post['pelatihan_id']);
+
+                $upload_4 = $this->load->library('upload', $config4);
+                if (@$_FILES['ttd']['name'] != null) {                     
+                        $this->upload->initialize($config4);
+                    if ($this->upload->do_upload('ttd')) {
+                        $post['ttd'] = $this->upload->data('file_name');
+                } else {
+                    $pesan = $this->upload->display_errors();
+                    $this->session->set_flashdata('danger',$pesan);
+                    redirect('publik/daftarluring');
+                }                           
+            }                 
              
             $this->formluring_m->simpan($post);
             if ($this->db->affected_rows() > 0) {

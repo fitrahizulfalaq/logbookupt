@@ -70,6 +70,12 @@ class formluring extends CI_Controller {
 			$target_file = 'assets/dist/files/formluring/ktp/'.$itemspt->ktp;
 			unlink($target_file);
 		}
+
+		$itemttd = $this->formluring_m->get($id)->row();		
+		if ($itemttd->ttd != null) {
+			$target_file = 'assets/dist/files/formluring/ttd/'.$itemspt->ttd;
+			unlink($target_file);
+		}
 		
 		$this->formluring_m->hapus($id);
 		$this->session->set_flashdata('danger','Berhasil Di Hapus');

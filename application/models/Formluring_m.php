@@ -98,6 +98,7 @@ class formluring_m extends CI_Model {
 	  $params['foto'] =  $post['foto'];
 	  $params['spt'] =  $post['spt'];
 	  $params['ktp'] =  $post['ktp'];
+	  $params['ttd'] =  $post['ttd'];
 	  $params['created'] =  date("Y:m:d:h:i:sa");
 
 	  $this->db->insert('frm_peserta_pelatihan',$params);	  	 		  	 		   			

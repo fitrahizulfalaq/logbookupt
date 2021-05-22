@@ -141,11 +141,7 @@
       <p align="right">
         <?= $this->fungsi->pilihan_selected("tb_pelatihan_luring",$row->pelatihan_id)->row("kota") ?>, <?= date("d",strtotime($row->created))." ".$bulanttd." ".date("Y",strtotime($row->created)) ?>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <img src="assets/dist/files/formluring/ttd/<?= $row->ttd ?>" alt="" width="200px" height="100px">
         <br>
         <?= strtoupper($row->nama) ?>
       </p>
