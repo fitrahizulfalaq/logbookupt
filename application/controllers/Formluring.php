@@ -200,7 +200,7 @@ class formluring extends CI_Controller {
 		}
 
 		//Bulan TTD
-		$ybulan = date("m",strtotime($data['row']->tgl_lahir));
+		$ybulan = date("m",strtotime($data['row']->created));
 		if ($ybulan == "1") {
 		    $data['bulanttd'] = "Januari";
 		} elseif ($ybulan == "2") {

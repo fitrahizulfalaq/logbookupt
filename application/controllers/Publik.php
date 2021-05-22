@@ -177,8 +177,71 @@ class Publik extends CI_Controller {
             }                 
              
             $this->formluring_m->simpan($post);
+            $this->load->library("cetak");
+            $token = $post['id'];
+            $konten = "formluring/template/pdf/formluringttd";
+            $filename = $post['nama'];
+            $data['row'] = $this->fungsi->pilihan_selected("frm_peserta_pelatihan",$token)->row();
+            
+            //BUlan Lahir
+            $xbulan = date("m",strtotime($post['tgl_lahir']));
+            if ($xbulan == "1") {
+                $data['bulanlahir'] = "Januari";
+            } elseif ($xbulan == "2") {
+                $data['bulanlahir'] = "Februari";
+            } elseif ($xbulan == "3") {
+                $data['bulanlahir'] = "Maret";
+            } elseif ($xbulan == "4") {
+                $data['bulanlahir'] = "April";
+            } elseif ($xbulan == "5") {
+                $data['bulanlahir'] = "Mei";
+            } elseif ($xbulan == "6") {
+                $data['bulanlahir'] = "Juni";
+            } elseif ($xbulan == "7") {
+                $data['bulanlahir'] = "Juli";
+            } elseif ($xbulan == "8") {
+                $data['bulanlahir'] = "Agustus";
+            } elseif ($xbulan == "9") {
+                $data['bulanlahir'] = "September";
+            } elseif ($xbulan == "10") {
+                $data['bulanlahir'] = "Oktober";
+            } elseif ($xbulan == "11") {
+                $data['bulanlahir'] = "November";
+            } elseif ($xbulan == "12") {
+                $data['bulanlahir'] = "Desember";
+            }
+
+            //Bulan TTD
+            $ybulan = date("m",strtotime($post['created']));
+            if ($ybulan == "1") {
+                $data['bulanttd'] = "Januari";
+            } elseif ($ybulan == "2") {
+                $data['bulanttd'] = "Februari";
+            } elseif ($ybulan == "3") {
+                $data['bulanttd'] = "Maret";
+            } elseif ($ybulan == "4") {
+                $data['bulanttd'] = "April";
+            } elseif ($ybulan == "5") {
+                $data['bulanttd'] = "Mei";
+            } elseif ($ybulan == "6") {
+                $data['bulanttd'] = "Juni";
+            } elseif ($ybulan == "7") {
+                $data['bulanttd'] = "Juli";
+            } elseif ($ybulan == "8") {
+                $data['bulanttd'] = "Agustus";
+            } elseif ($ybulan == "9") {
+                $data['bulanttd'] = "September";
+            } elseif ($ybulan == "10") {
+                $data['bulanttd'] = "Oktober";
+            } elseif ($ybulan == "11") {
+                $data['bulanttd'] = "November";
+            } elseif ($ybulan == "12") {
+                $data['bulanttd'] = "Desember";
+            }  
+
             if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('success','Pendaftaran Berhasil');
+                $this->cetak->formLuring($konten,$filename,$data);
+                $this->session->set_flashdata('success','Pendaftaran Berhasil. Silahkan cetak formulir biodata anda');
             }           
             redirect('publik/daftarluring');                
         }
