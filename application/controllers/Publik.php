@@ -178,7 +178,7 @@ class Publik extends CI_Controller {
              
             $this->formluring_m->simpan($post);
             if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('success','Pendaftaran Berhasil. Silahkan cetak formulir biodata anda');
+                $this->session->set_flashdata('success','Pendaftaran Berhasil...');
             }           
             redirect('publik/daftarluring');                
         }
