@@ -110,7 +110,7 @@
   <tr>
     <td width="293" height="30" valign="top"><p>LAMA USAHA</p></td>
     <td width="19" height="30" valign="top"><p>:</p></td>
-    <td height="30" colspan="4" valign="top"><p><?= strtoupper($row->lama_usaha) ?></p></td>
+    <td height="30" colspan="4" valign="top"><p><?= $row->lama_usaha ?></p></td>
   </tr>
   <tr>
     <td width="293" height="30" valign="top"><p>JUMLAH TENAGA KERJA UMKM</p></td>
@@ -120,7 +120,7 @@
   <tr>
     <td height="30" valign="top"><p>OMSET USAHA PERBULAN</p></td>
     <td height="30" valign="top"><p>:</p></td>
-    <td height="30" colspan="4" valign="top"><p>Rp. <?= strtoupper($row->omset) ?></p></td>
+    <td height="30" colspan="4" valign="top"><p>Rp. <?= number_format($row->omset,2,',','.'); ?></p></td>
   </tr>
   <tr>
     <td height="30" valign="top">&nbsp;</td>

@@ -225,11 +225,11 @@
       <div>
         <select name="lama_usaha" class="form-control" required>
           <option value="<?= set_value('lama_usaha'); ?>">Pilih : <?= set_value('lama_usaha'); ?></option>             
-          <option value="KURANG DARI 12 BULAN">< 12 BULAN</option>
-          <option value="KURANG DARI 24 BULAN">< 24 BULAN</option>
-          <option value="KURANG DARI 36 BULAN">< 36 BULAN</option>
-          <option value="KURANG DARI 48 BULAN">< 48 BULAN</option>
-          <option value="LEBIH DARI 4 TAHUN">> 4 TAHUN</option>
+          <option value="< 12 BULAN">< 12 BULAN</option>
+          <option value="< 24 BULAN">< 24 BULAN</option>
+          <option value="< 36 BULAN">< 36 BULAN</option>
+          <option value="< 48 BULAN">< 48 BULAN</option>
+          <option value="> 4 TAHUN">> 4 TAHUN</option>
         </select>
         <?php echo form_error('lama_usaha')?>
       </div>
@@ -270,7 +270,7 @@
     </div>
 
     <div class="form-group">
-      <label>File Foto</label> <small>Maksimal 2Mb (Format : .jpeg, .jpg, .png)</small>
+      <label>Foto</label> <small>Maksimal 2Mb (Format : .jpeg, .jpg, .png)</small>
       <div class="input-group mb-3">
         <input type="file" name="foto" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
@@ -278,11 +278,11 @@
     </div>
 
     <div class="form-group">
-      <label>File TTD</label> <small>Maksimal ukuran 2Mb (Format: .jpeg, .jpg, .png)</small>
+      <label>File TTD</label> <small>Maksimal 2Mb (Format: .jpeg, .jpg, .png)</small>
       <div class="input-group mb-3">
         <input type="file" name="ttd" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
-      <small>Jika Belum Memiliki TTD Digital bisa membuat <a href="https://tools.uptkukm.id/ttd" target="blank">disini</a></small>
+      <small>Buat TTD Digital <a href="https://tools.uptkukm.id/ttd" target="blank">disini</a></small>
       <?php echo form_error('foto')?>
     </div>            
     <div class="form-check">

@@ -39,6 +39,17 @@
               <div class="input-group mb-3">
                 <input type="text" class="form-control" name="template" placeholder="Ex: Probolinggo" value="<?= $this->input->post('template') ?? $row->template;?>">
               <?php echo form_error('template')?>
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <div>
+                <select name="status" class="form-control" required>
+                  <option value="<?= $this->input->post('status') ?? $row->status; ?>">Pilih : <?= $this->input->post('status') ?? $row->status; ?></option>                
+                  <option value="1">AKTIF</option>
+                  <option value="2">TIDAK</option>
+                </select>
+                <?php echo form_error('status')?>
+              </div>
             </div>          
             <div class="form-check">
               <input type="checkbox" class="form-check-input" required>

@@ -90,6 +90,7 @@ class Pelatihanluring_m extends CI_Model {
     $params['header'] =  $post['header'];
     $params['kota'] =  $post['kota'];
     $params['template'] =  $post['template'];
+    $params['status'] =  $post['status'];
 	  $params['created'] =  date("Y:m:d:h:i:sa");
 
 	  $this->db->insert('tb_pelatihan_luring',$params);
@@ -102,6 +103,7 @@ class Pelatihanluring_m extends CI_Model {
     $params['header'] =  $post['header'];
     $params['kota'] =  $post['kota'];
     $params['template'] =  $post['template'];
+    $params['status'] =  $post['status'];
 
     $this->db->where('id',$params['id']);
     $this->db->update('tb_pelatihan_luring',$params);

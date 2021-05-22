@@ -15,7 +15,7 @@ class formluring extends CI_Controller {
     {       
         $this->load->library("form_validation");
 
-        $data['menu'] = "Data Form Pendaftaran Luring";
+        $data['menu'] = "Data Form";
         $this->templateadmin->load('template/dashboard','formluring/formluring_instruksi',$data);
     }
 
@@ -33,7 +33,7 @@ class formluring extends CI_Controller {
             redirect("formluring");
         }
 
-		$data['menu'] = "Data Formulir Pendaftaran Pelatihan Luring";
+		$data['menu'] = "Data Formulir Pendaftaran ";
 		$data['row'] = $this->formluring_m->getByPelatihan($kode);
 		$data['header_script'] = "datatables-header";
         $data['footer_script'] = "datatables-formluring";
@@ -42,7 +42,7 @@ class formluring extends CI_Controller {
 
 	public function showAll()
 	{		
-		$data['menu'] = "Data Formulir Pendaftaran Pelatihan Luring";
+		$data['menu'] = "Data Formulir Pendaftaran ";
 		$data['row'] = $this->formluring_m->getByPelatihan();
 		$data['header_script'] = "datatables-header";
         $data['footer_script'] = "datatables-formluring";

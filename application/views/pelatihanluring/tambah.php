@@ -40,7 +40,17 @@
                 <input type="text" class="form-control" name="template" placeholder="Ex: digitalisasi-umkm" value="<?= set_value('template');?>">
               <?php echo form_error('template')?>
             </div>
-            
+            <div class="form-group">
+              <label>Status</label>
+              <div>
+                <select name="status" class="form-control" required>
+                  <option value="<?= set_value('status'); ?>">Pilih : <?= set_value('status') != "1" ? "AKTIF" : "TIDAK"; ?></option>                
+                  <option value="1">AKTIF</option>
+                  <option value="2">TIDAK</option>
+                </select>
+                <?php echo form_error('status')?>
+              </div>
+            </div>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" required>
               <label class="form-check-label" for="exampleCheck1">Pastikan data sudah benar</label>
