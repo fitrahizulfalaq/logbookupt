@@ -1,3 +1,3 @@
 <body onload="window.print()">
-<img src="<?= $file?>" width="400px" height="250px">
+<img src="<?= $file?>" width="80%">
 </body>
