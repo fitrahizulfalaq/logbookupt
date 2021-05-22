@@ -88,7 +88,7 @@ class Publik extends CI_Controller {
         $this->load->model('formluring_m');
         //Atur validasinya
         $this->form_validation->set_rules('nik', 'nik', 'min_length[16]|is_unique[frm_peserta_pelatihan.nik]|max_length[16]');
-        $this->form_validation->set_rules('hp', 'hp', 'min_length[12]|is_unique[frm_peserta_pelatihan.hp]|max_length[12]');
+        $this->form_validation->set_rules('hp', 'hp', 'min_length[11]|is_unique[frm_peserta_pelatihan.hp]|max_length[12]');
 
         //Pesan yang ditampilkan
         $this->form_validation->set_message('min_length', '{field} Setidaknya  minimal {param} karakter.');
@@ -124,7 +124,7 @@ class Publik extends CI_Controller {
 
                     //CEK GAMBAR
             $config2['upload_path']          = 'assets/dist/files/formluring/spt/';
-            $config2['allowed_types']        = 'pdf';
+            $config2['allowed_types']        = 'pdf|jpg|png|jpeg';
             $config2['max_size']             = 6000;
             $config2['file_name']            = strtoupper($post['nik'] . " - " . $post['pelatihan_id']);
 

@@ -262,7 +262,7 @@
     </div>
 
     <div class="form-group">
-      <label>File SPT</label> <small>Maksimal 2 Mb ( Berformat : .pdf)</small>
+      <label>File SPT</label> <small>Maksimal 2Mb (Format : .pdf / foto 1 lembar)</small>
       <div class="input-group mb-3">
         <input type="file" name="spt" class="form-control" placeholder="Ex: 4" accept=".pdf" required>
       </div>
@@ -270,7 +270,7 @@
     </div>
 
     <div class="form-group">
-      <label>File Foto</label> <small>Maksimal 2 Mb (Berformat : .jpeg, .jpg, .png)</small>
+      <label>File Foto</label> <small>Maksimal 2Mb (Format : .jpeg, .jpg, .png)</small>
       <div class="input-group mb-3">
         <input type="file" name="foto" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
@@ -278,11 +278,11 @@
     </div>
 
     <div class="form-group">
-      <label>File TTD</label> <small>Maksimal ukuran 2 Mb (Format : .jpeg, .jpg, .png)</small>
+      <label>File TTD</label> <small>Maksimal ukuran 2Mb (Format: .jpeg, .jpg, .png)</small>
       <div class="input-group mb-3">
         <input type="file" name="ttd" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
-      <small>Jika Belum Memiliki TTD Digital bisa membuat disini <a href="https://tools.uptkukm.id/ttd" target="blank">link</a></small>
+      <small>Jika Belum Memiliki TTD Digital bisa membuat <a href="https://tools.uptkukm.id/ttd" target="blank">disini</a></small>
       <?php echo form_error('foto')?>
     </div>            
     <div class="form-check">
