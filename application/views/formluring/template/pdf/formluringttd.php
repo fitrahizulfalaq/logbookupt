@@ -134,11 +134,11 @@
   </tr>
   <tr>
     <td valign="middle" align="center">
-      <img src="assets/dist/files/formluring/foto/<?= $row->foto ?>" alt="" width="150px" height="200px">
+      <img src="assets/dist/files/formluring/foto/<?= $row->foto ?>" alt="" style="max-width: 150px; max-height: 250px">
     </td>
     <td valign="top">&nbsp;</td>
-    <td colspan="4" valign="top" align="right">
-      <p align="right">
+    <td colspan="4" valign="top" align="center">
+      <p align="center">
         <?= $this->fungsi->pilihan_selected("tb_pelatihan_luring",$row->pelatihan_id)->row("kota") ?>, <?= date("d",strtotime($row->created))." ".$bulanttd." ".date("Y",strtotime($row->created)) ?>
         <br>
         <img src="assets/dist/files/formluring/ttd/<?= $row->ttd ?>" alt="" width="200px" height="100px">
