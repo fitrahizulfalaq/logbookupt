@@ -9,6 +9,8 @@
         <option value="<?= set_value('pelatihan_id');?>">Pilihan : </option>
         <?php
           // $this->db->where("status =","1");
+          $this->db->order_by("status","asc");
+          $this->db->order_by("deskripsi","asc");
           foreach ($this->fungsi->pilihan("tb_pelatihan_luring")->result() as $key => $pilihan) {;
         ?>
         <option value="<?= $pilihan->id?>" <?= $pilihan->status == "1" ? "" : "disabled"?>><?= $pilihan->deskripsi?></option>
