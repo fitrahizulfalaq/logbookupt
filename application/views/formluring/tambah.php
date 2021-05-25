@@ -289,7 +289,7 @@
     </div>            
     <div class="form-check">
       <input type="checkbox" class="form-check-input" required>
-      <label class="form-check-label" for="exampleCheck1">Pastikan data sudah benar</label>
+      <label class="form-check-label" for="exampleCheck1">Dengan ini saya menyatakan konfirmasi untuk mengikuti kegiatan sesuai jadwal yang ditetapkan.</label>
     </div>
   </div>
   <!-- /.card-body -->

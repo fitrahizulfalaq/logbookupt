@@ -178,7 +178,7 @@ class Publik extends CI_Controller {
              
             $this->formluring_m->simpan($post);
             if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('success','Pendaftaran Berhasil... <br><h3><a href="'.base_url("publik/cetakpdf/".$post['nik']).'" target="blank"> Unduh Formulir Anda</a></h3>');
+                $this->session->set_flashdata('success','Pendaftaran Berhasil... <br><h3><a href="'.base_url("publik/cetakpdf/".$post['nik']).'" target="blank"> Silahkan Klik untuk Mengunduh Formulir Anda</a></h3>');
             }           
             redirect('publik/daftarluring');                
         }
