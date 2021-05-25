@@ -2,6 +2,7 @@
 
 <?= form_open_multipart('')?>
   <div class="card-body">
+    <?php $this->view("template/message/info_pendaftaran")?>
     <div class="form-group">
       <label>Pelatihan</label>
       <select name="pelatihan_id" class="form-control" id="pelatihan_id" required>
@@ -254,7 +255,7 @@
     <hr>
 
     <div class="form-group">
-      <label>File KTP</label> <small>Maksimal 2 Mb (Format : .jpeg, .jpg, .png)</small>
+      <label>File KTP</label> <span class="badge badge-info">Maksimal 2 Mb (Format : .jpeg, .jpg, .png)</span>
       <div class="input-group mb-3">
         <input type="file" name="ktp" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
@@ -283,7 +284,7 @@
       <div class="input-group mb-3">
         <input type="file" name="ttd" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
-      <small>Buat dan simpan TTD Digital <a href="https://tools.uptkukm.id/ttd" target="_blank">disini.</a> Kemudian upload file dengan menekan tombol upload</small>
+      <small>Buat dan simpan TTD Digital <a href="https://tools.uptkukm.id/ttd" target="_blank">disini.</a> Kemudian upload file</small>
       <?php echo form_error('foto')?>
     </div>            
     <div class="form-check">
