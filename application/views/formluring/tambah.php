@@ -7,10 +7,10 @@
       <select name="pelatihan_id" class="form-control" id="pelatihan_id" required>
         <option value="<?= set_value('pelatihan_id');?>">Pilihan : </option>
         <?php
-          $this->db->where("status =","1");
+          // $this->db->where("status =","1");
           foreach ($this->fungsi->pilihan("tb_pelatihan_luring")->result() as $key => $pilihan) {;
         ?>
-        <option value="<?= $pilihan->id?>"><?= $pilihan->deskripsi?></option>
+        <option value="<?= $pilihan->id?>" <?= $pilihan->status == "1" ? "" : "disabled"?>><?= $pilihan->deskripsi?></option>
         <?php }?>
       </select>
       <?php echo form_error('komisariat_id')?>
@@ -44,7 +44,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
           </div>
-          <input type="date" name="tgl_lahir" class="form-control" placeholder="Ex: 081231390340" value="<?= set_value('tgl_lahir'); ?>" required>
+          <input type="date" name="tgl_lahir" class="form-control" placeholder="Ex: 081231390340" value="<?= set_value('tgl_lahir') == null ? date("Y-m-d",1990-1-1) : set_value('tgl_lahir'); ?>" required>
         </div>
         <?php echo form_error('tgl_lahir')?>
       </div>
@@ -244,7 +244,7 @@
     </div>
 
     <div class="form-group">
-      <label>Omset</label>
+      <label>Omset Per Bulan</label>
       <div class="input-group mb-3">
         <input type="number" name="omset" class="form-control" placeholder="Ex: 900000000" value="<?= set_value('omset'); ?>" required minlength="6" maxlength="12">
       </div>
@@ -254,7 +254,7 @@
     <hr>
 
     <div class="form-group">
-      <label>File KTP</label> <small>Maksimal 2 Mb (Berformat : .jpeg, .jpg, .png)</small>
+      <label>File KTP</label> <small>Maksimal 2 Mb (Format : .jpeg, .jpg, .png)</small>
       <div class="input-group mb-3">
         <input type="file" name="ktp" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
@@ -262,15 +262,16 @@
     </div>
 
     <div class="form-group">
-      <label>File SPT</label> <small>Maksimal 2Mb (Format : .pdf)</small>
+      <label>File SPT</label> <span class="badge badge-info">Maksimal 2Mb (Format : .pdf)</span>
       <div class="input-group mb-3">
         <input type="file" name="spt" class="form-control" placeholder="Ex: 4" accept=".pdf" required>
       </div>
+      <small>Harap pastikan file anda berupa *.pdf dan ukuran tidak melebihi 2Mb, Contoh SPT bisa dilihat <a href="https://go.uptkukm.id/contoh-spt" target="blank">disini</a> </small>
       <?php echo form_error('spt')?>
     </div>
 
     <div class="form-group">
-      <label>Foto</label> <small>Maksimal 2Mb (Format : .jpeg, .jpg, .png)</small>
+      <label>Foto</label> <span class="badge badge-info">Maksimal 2Mb (Format : .jpeg, .jpg, .png)</span>
       <div class="input-group mb-3">
         <input type="file" name="foto" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
@@ -278,11 +279,11 @@
     </div>
 
     <div class="form-group">
-      <label>File TTD</label> <small>Maksimal 2Mb (Format: .jpeg, .jpg, .png)</small>
+      <label>File TTD</label> <span class="badge badge-info">Maksimal 2Mb (Format: .jpeg, .jpg, .png)</span>
       <div class="input-group mb-3">
         <input type="file" name="ttd" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
-      <small>Buat TTD Digital <a href="https://tools.uptkukm.id/ttd" target="_blank">disini</a></small>
+      <small>Buat dan simpan TTD Digital <a href="https://tools.uptkukm.id/ttd" target="_blank">disini.</a> Kemudian upload file dengan menekan tombol upload</small>
       <?php echo form_error('foto')?>
     </div>            
     <div class="form-check">
