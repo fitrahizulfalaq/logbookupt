@@ -106,8 +106,8 @@
       </div>
     </div>
     <div class="form-group">
-      <label>Alamat</label>
-      <textarea class="form-control" name="domisili" rows="4" placeholder="Ex: Jl. Galunggung 25B, Klojen" required minlength="15" maxlength="50"><?= set_value('domisili'); ?></textarea>
+      <label>Alamat</label><small> Maksimal 80 Karakter</small>
+      <textarea class="form-control" name="domisili" rows="4" placeholder="Ex: Jl. Galunggung 25B, Klojen" required minlength="15" maxlength="80"><?= set_value('domisili'); ?></textarea>
       <?php echo form_error('domisili')?>
     </div>
     <div class="form-group">
@@ -180,8 +180,8 @@
       <?php echo form_error('nama_usaha')?>
     </div>
     <div class="form-group">
-      <label>Alamat Usaha</label>
-      <textarea class="form-control" name="domisili_usaha" rows="4" placeholder="Ex: Jl. Galunggung 25B, Klojen" required minlength="15" maxlength="50"><?= set_value('domisili_usaha'); ?></textarea>
+      <label>Alamat Usaha</label><small> Maksimal 80 Karakter</small>
+      <textarea class="form-control" name="domisili_usaha" rows="4" placeholder="Ex: Jl. Galunggung 25B, Klojen" required minlength="15" maxlength="80"><?= set_value('domisili_usaha'); ?></textarea>
       <?php echo form_error('domisili_usaha')?>
     </div>
     <div class="form-group">
@@ -296,8 +296,8 @@
   </div>
   <!-- /.card-body -->
   <div class="card-footer">
-    <button type="submit" class="btn btn-success">Tambah</button>
-    <button type="reset" class="btn btn-danger">Ulangi</button>            
+    <button type="submit" class="btn btn-success">Daftar</button>
+    <button type="reset" class="btn btn-danger">Kosongi</button>            
   </div>
 
   <div id="pageloader" class="text-center">
