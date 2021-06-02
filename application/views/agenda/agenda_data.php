@@ -5,7 +5,7 @@
     <div class="col-12">     
       <div class="card-header">          
         <a href="<?=site_url('agenda/tambah/')?>" class="btn btn-success btn-sm"><i class='fas fa-plus'></i> Tambah</a>
-        <a href="<?=base_url("");?>" class="btn btn-info float-right btn-sm"><i class="fas fa-backward"></i> Kembali</a>
+        <a href="<?=base_url("");?>" class="btn btn-info float-right btn-sm"><i class="fas fa-backward"></i> Back</a>
       </div>
       <div class="card">
         <div class="card-header bg-info">
