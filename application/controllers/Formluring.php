@@ -229,5 +229,119 @@ class formluring extends CI_Controller {
 		$this->cetak->formLuring($konten,$filename,$data);		
 	}
 
+	public function edit($id)
+	{
+    	$pelatihan_id = $this->uri->segment(5);
+		//Load librarynya dulu
+		$this->load->library('form_validation');
+		//Atur validasinya
+		$this->form_validation->set_rules('nik', 'nik', 'min_length[16]|is_unique[frm_peserta_pelatihan.nik]|max_length[16]');
+		$this->form_validation->set_rules('hp', 'hp', 'min_length[11]|is_unique[frm_peserta_pelatihan.hp]|max_length[12]');
+
+		//Pesan yang ditampilkan
+		$this->form_validation->set_message('min_length', '{field} Setidaknya  minimal {param} karakter.');
+		$this->form_validation->set_message('max_length', '{field} Seharusnya maksimal {param} karakter.');
+		$this->form_validation->set_message('is_unique', 'Data sudah ada');
+		//Tampilan pesan error
+		$this->form_validation->set_error_delimiters('<span class="badge badge-danger">', '</span>');
+
+		if ($this->form_validation->run() == FALSE) {
+			$query = $this->formluring_m->get($id);
+			if ($query->num_rows() > 0) {
+				$data['row'] = $query->row();
+				$data['menu'] = "Edit Data Modul";
+				$data['header_script'] = "summernote-header";
+				$data['footer_script'] = "summernote-footer";			
+				$this->templateadmin->load('template/dashboard','formluring/edit',$data);
+			} else {
+				echo "<script>alert('Data Tidak Ditemukan');</script>";
+				redirect('formluring/showPelatihan/'.$pelatihan_id);
+			}
+			
+	    } else {
+	    	$post = $this->input->post(null, TRUE);                         
+
+	    	//CEK GAMBAR
+	    	$config['upload_path']          = 'assets/dist/files/formluring/foto/';
+	    	$config['allowed_types']        = 'jpg|png|jpeg';
+	    	$config['max_size']             = 6000;
+	    	$config['file_name']            = strtoupper($post['nik'] . " - " . $post['pelatihan_id']);
+
+	    	$this->load->library('upload', $config);
+	    	if (@$_FILES['foto']['name'] != null) {                     
+	    	        $this->upload->initialize($config);
+	    	    if ($this->upload->do_upload('foto')) {
+	    	        $post['foto'] = $this->upload->data('file_name');
+	    	    } else {
+	    	        $pesan = $this->upload->display_errors();
+	    	        $this->session->set_flashdata('danger',$pesan);
+	    	        redirect('formluring/edit');
+	    	    }                           
+	    	}
+
+	    	        //CEK GAMBAR
+	    	$config2['upload_path']          = 'assets/dist/files/formluring/spt/';
+	    	$config2['allowed_types']        = 'pdf';
+	    	$config2['max_size']             = 6000;
+	    	$config2['file_name']            = strtoupper($post['nik'] . " - " . $post['pelatihan_id']);
+
+	    	    $upload_2 = $this->load->library('upload', $config2);
+	    	    if (@$_FILES['spt']['name'] != null) {
+	    	            $this->upload->initialize($config2);
+	    	        if ($this->upload->do_upload('spt')) {
+	    	            $post['spt'] = $this->upload->data('file_name');
+	    	    } else {
+	    	            $pesan = $this->upload->display_errors();
+	    	            $this->session->set_flashdata('danger',$pesan);
+	    	            redirect('formluring/edit');
+	    	    }
+	    	}
+
+	    	//CEK GAMBAR
+	    	$config3['upload_path']          = 'assets/dist/files/formluring/ktp/';
+	    	$config3['allowed_types']        = 'jpg|png|jpeg';
+	    	$config3['max_size']             = 6000;
+	    	$config3['file_name']            = strtoupper($post['nik'] . " - " . $post['pelatihan_id']);
+
+	    	    $upload_3 = $this->load->library('upload', $config3);
+	    	    if (@$_FILES['ktp']['name'] != null) {                     
+	    	            $this->upload->initialize($config3);
+	    	        if ($this->upload->do_upload('ktp')) {
+	    	            $post['ktp'] = $this->upload->data('file_name');
+	    	    } else {
+	    	        $pesan = $this->upload->display_errors();
+	    	        $this->session->set_flashdata('danger',$pesan);
+	    	        redirect('formluring/edit');
+	    	    }                           
+	    	}
+
+	    	//CEK GAMBAR
+	    	$config4['upload_path']          = 'assets/dist/files/formluring/ttd/';
+	    	$config4['allowed_types']        = 'jpg|png|jpeg';
+	    	$config4['max_size']             = 6000;
+	    	$config4['file_name']            = strtoupper($post['nik'] . " - " . $post['pelatihan_id']);
+
+	    	    $upload_4 = $this->load->library('upload', $config4);
+	    	    if (@$_FILES['ttd']['name'] != null) {                     
+	    	            $this->upload->initialize($config4);
+	    	        if ($this->upload->do_upload('ttd')) {
+	    	            $post['ttd'] = $this->upload->data('file_name');
+	    	    } else {
+	    	        $pesan = $this->upload->display_errors();
+	    	        $this->session->set_flashdata('danger',$pesan);
+	    	        redirect('formluring/edit');
+	    	    }                           
+	    	}                 
+	    	 
+	    	$this->formluring_m->update($post);
+	    	if ($this->db->affected_rows() > 0) {
+	    	    $this->session->set_flashdata('success','Berhasil di edit');
+	    	}           
+	    	redirect('formluring/showPelatihan/'.$pelatihan_id);
+	    }
+	}
+
+
+
 
 }

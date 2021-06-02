@@ -19,11 +19,11 @@
             <tr align="center">
               <th width="5%">No</th>
               <th width="20%">Pelatihan</th>
-              <th width="25%">Nama</th>
+              <th width="20%">Nama</th>
               <th width="10%">Status</th>
               <th width="10%">Biodata</th>
               <th width="20%">Keperluan</th>
-              <th width="10%">#</th>
+              <th width="20%">#</th>
             </tr>
             </thead>
             <tbody>
@@ -54,6 +54,7 @@
                   <td>
                     <?php if ($data->status == "1") { ?>
                       <a href="<?= site_url('formluring/acc/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-success"><i class='fas fa-check'></i></a>                  
+                      <a href="<?= site_url('formluring/edit/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-info"><i class='fas fa-edit'></i></a>                
                       <a href="<?= site_url('formluring/hapus/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah yakin mau dihapus?')"><i class='fas fa-trash'></i></a>                
                     <?php } else { ?>
                       <a href="<?= site_url('formluring/batal/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-warning"><i class='fas fa-ban'></i></a>        
