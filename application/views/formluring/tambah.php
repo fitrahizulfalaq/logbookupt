@@ -267,7 +267,7 @@
     <div class="form-group">
       <label>File SPT</label> <span class="badge badge-info">Maksimal 2Mb (Format : .pdf)</span>
       <div class="input-group mb-3">
-        <input type="file" name="spt" class="form-control" placeholder="Ex: 4" accept=".pdf" required>
+        <input type="file" name="spt" class="form-control" placeholder="Ex: 4" accept=".pdf">
       </div>
       <small>Harap pastikan file anda berupa *.pdf dan ukuran tidak melebihi 2Mb, Contoh SPT bisa dilihat <a href="https://go.uptkukm.id/contoh-spt" target="blank">disini</a> </small>
       <?php echo form_error('spt')?>

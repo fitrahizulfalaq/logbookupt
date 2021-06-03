@@ -134,8 +134,7 @@ class formluring extends CI_Controller {
 			$filename = "assets/dist/files/formluring/spt/".$query->row("spt");
 					  
 			// Header content type
-			header("Content-type: application/pdf");
-			  
+			header("Content-type: application/pdf");			  
 			header("Content-Length: " . filesize($filename));
 			  
 			// Send the file to the browser.

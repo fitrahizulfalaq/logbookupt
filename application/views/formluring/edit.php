@@ -326,7 +326,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="submit" class="btn btn-success">Daftar</button>
+            <button type="submit" class="btn btn-success">Update</button>
             <button type="reset" class="btn btn-danger">Kosongi</button>            
           </div>
         <?= form_close() ?>

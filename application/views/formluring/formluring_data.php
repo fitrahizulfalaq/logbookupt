@@ -39,8 +39,8 @@
                     <small><?= $data->nik?></small>                      
                   </td>
                   <td>                    
-                    <?= $data->status == "2" ? '<span class="badge badge-success"> Sudah di Cek </span>' : '<span class="badge badge-warning"> Belum di Cek </span>'?><br>                    
-                    <?= date('d-m-Y',strtotime($data->created))?>                    
+                    <?= $data->status == "2" ? '<span class="badge badge-success"> Sudah di Cek </span>' : '<span class="badge badge-warning"> Belum di Cek </span>'?><br>
+                    <small><?= date('H:i d-m-Y',strtotime($data->created))?></small>                    
                   </td>
                   <td>                    
                     <!-- <a href="<?= site_url('formluring/cetak/'.$data->id.'/pelatihan/'.$data->pelatihan_id);?>" class="btn btn-sm btn-info"><i class='fas fa-file-word'></i></a> -->
@@ -49,7 +49,9 @@
                   <td>
                     <a href="<?= site_url('assets/dist/files/formluring/foto/'.$data->foto)?>" target="_blank" class="btn btn-sm btn-info"><i class='fas fa-camera'></i> FOTO</a>
                     <a href="<?= site_url('formluring/tampilKtp/'.$data->id);?>" target="_blank" class="btn btn-sm btn-primary"><i class='fas fa-user'></i> KTP</a>
+                    <?php if ($data->spt != null) { ?>
                     <a href="<?= site_url('formluring/tampilSPT/'.$data->id);?>" target="_blank" class="btn btn-sm btn-secondary"><i class='fas fa-book'></i> SPT</a>
+                    <?php } ?>
                   </td>
                   <td>
                     <?php if ($data->status == "1") { ?>
