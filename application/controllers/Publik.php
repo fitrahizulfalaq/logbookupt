@@ -87,8 +87,8 @@ class Publik extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model('formluring_m');
         //Atur validasinya
-        $this->form_validation->set_rules('nik', 'nik', 'min_length[16]|is_unique[frm_peserta_pelatihan.nik]|max_length[16]');
-        $this->form_validation->set_rules('hp', 'hp', 'min_length[11]|is_unique[frm_peserta_pelatihan.hp]|max_length[12]');
+        $this->form_validation->set_rules('nik', 'nik', 'min_length[16]|max_length[16]');
+        $this->form_validation->set_rules('hp', 'hp', 'min_length[11]|max_length[12]');
 
         //Pesan yang ditampilkan
         $this->form_validation->set_message('min_length', '{field} Setidaknya  minimal {param} karakter.');

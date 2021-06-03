@@ -148,10 +148,10 @@ class formluring extends CI_Controller {
 		
 	}
 
-	//Tampil di broser
+	//Menampilkan KTP kemudian Langsung Cetak
 	public function tampilKtp($id)
 	{
-		$query = $this->formluring_m->getSpt($id);
+		$query = $this->formluring_m->get($id);
 		if ($query->num_rows() > 0) {
 			$file = site_url('assets/dist/files/formluring/ktp/'.$query->row("ktp"));
 			// $data['file'] = base_url('assets/dist/files/formluring/spt/'.$query->row("spt"));
@@ -163,6 +163,7 @@ class formluring extends CI_Controller {
 		}
 	}
 
+	//Download KTP menggunakan format Word, tak matikan dulu
 	public function cetakpdf()
 	{
 		$this->load->library("cetak");
