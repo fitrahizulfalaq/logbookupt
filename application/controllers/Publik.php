@@ -178,19 +178,22 @@ class Publik extends CI_Controller {
              
             $this->formluring_m->simpan($post);
             if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('success','Pendaftaran Berhasil... <br><h3><a href="'.base_url("publik/cetakpdf/".$post['nik']).'" target="blank"> Silahkan Klik untuk Mengunduh Formulir Anda</a></h3>');
+                $this->session->set_flashdata('success','Pendaftaran Berhasil... <br><h3><a href="'.base_url("publik/cetakpdf/".$post['nik']."/pelatihan/".$post['pelatihan_id']).'" target="blank"> Silahkan Klik untuk Mengunduh Formulir Anda</a></h3>');
             }           
             redirect('publik/daftarluring');                
         }
     }
 
+    // Untuk Mendownload formulir secara langsung
+    // Menggunakan nik dan pelatihan id
     public function cetakpdf()
     {
         $this->load->library("cetak");
         $token = $this->uri->segment(3);
+        $pelatihan_id = $this->uri->segment(5);
         $konten = "formluring/template/pdf/formluringttd";
-        $filename = "Formulir Pendaftaran - ".$this->fungsi->pilihan_advanced("frm_peserta_pelatihan","nik",$token)->row("nama");
-        $getData = $this->fungsi->pilihan_advanced("frm_peserta_pelatihan","nik",$token);
+        $filename = "Formulir Pendaftaran - ".$this->fungsi->pilihan_advanced_multiple("frm_peserta_pelatihan","nik",$token,"pelatihan_id",$pelatihan_id)->row("nama");
+        $getData = $this->fungsi->pilihan_advanced_multiple("frm_peserta_pelatihan","nik",$token,"pelatihan_id",$pelatihan_id);
         $data['row'] = $getData->row();
 
         if ($getData->num_rows() != null) {
