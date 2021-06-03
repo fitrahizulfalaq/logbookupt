@@ -101,6 +101,7 @@ class formluring extends CI_Controller {
 		redirect('formluring/showPelatihan/'.$pelatihan_id);
 	}
 
+
 	function cetak() {
 		//Get Data
 		$token = $this->uri->segment(3);
@@ -235,8 +236,8 @@ class formluring extends CI_Controller {
 		//Load librarynya dulu
 		$this->load->library('form_validation');
 		//Atur validasinya
-		$this->form_validation->set_rules('nik', 'nik', 'min_length[16]|is_unique[frm_peserta_pelatihan.nik]|max_length[16]');
-		$this->form_validation->set_rules('hp', 'hp', 'min_length[11]|is_unique[frm_peserta_pelatihan.hp]|max_length[12]');
+		$this->form_validation->set_rules('nik', 'nik', 'min_length[16]|max_length[16]');
+		$this->form_validation->set_rules('hp', 'hp', 'min_length[11]|max_length[12]');
 
 		//Pesan yang ditampilkan
 		$this->form_validation->set_message('min_length', '{field} Setidaknya  minimal {param} karakter.');
@@ -275,7 +276,7 @@ class formluring extends CI_Controller {
 	    	    } else {
 	    	        $pesan = $this->upload->display_errors();
 	    	        $this->session->set_flashdata('danger',$pesan);
-	    	        redirect('formluring/edit');
+	    	        redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);
 	    	    }                           
 	    	}
 
@@ -293,7 +294,7 @@ class formluring extends CI_Controller {
 	    	    } else {
 	    	            $pesan = $this->upload->display_errors();
 	    	            $this->session->set_flashdata('danger',$pesan);
-	    	            redirect('formluring/edit');
+	    	            redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);
 	    	    }
 	    	}
 
@@ -311,7 +312,7 @@ class formluring extends CI_Controller {
 	    	    } else {
 	    	        $pesan = $this->upload->display_errors();
 	    	        $this->session->set_flashdata('danger',$pesan);
-	    	        redirect('formluring/edit');
+	    	        redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);
 	    	    }                           
 	    	}
 
@@ -329,16 +330,88 @@ class formluring extends CI_Controller {
 	    	    } else {
 	    	        $pesan = $this->upload->display_errors();
 	    	        $this->session->set_flashdata('danger',$pesan);
-	    	        redirect('formluring/edit');
+	    	        redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);
 	    	    }                           
 	    	}                 
 	    	 
 	    	$this->formluring_m->update($post);
 	    	if ($this->db->affected_rows() > 0) {
 	    	    $this->session->set_flashdata('success','Berhasil di edit');
-	    	}           
-	    	redirect('formluring/showPelatihan/'.$pelatihan_id);
+	    	}
+	    	redirect('formluring/showPelatihan/'.$post['pelatihan_id']);
 	    }
+	}
+
+	function hapusfoto(){
+	  	$id = $this->uri->segment(3);
+	  	$pelatihan_id = $this->uri->segment(5);
+		
+		//Action		  
+		$itemfoto = $this->formluring_m->get($id)->row();
+  		if ($itemfoto->foto != null) {
+  			$target_file = 'assets/dist/files/formluring/foto/'.$itemfoto->foto;
+  			unlink($target_file);
+  		}
+  		$params['foto'] = null;
+
+  		$this->db->where('id',$id);
+	  	$this->db->update('frm_peserta_pelatihan',$params);
+		$this->session->set_flashdata('warning','Foto berhasil dihapus');
+		redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);	  
+	}
+
+	function hapusktp(){
+	  	$id = $this->uri->segment(3);
+	  	$pelatihan_id = $this->uri->segment(5);
+		
+		//Action		  
+		$itemktp = $this->formluring_m->get($id)->row();
+  		if ($itemktp->ktp != null) {
+  			$target_file = 'assets/dist/files/formluring/ktp/'.$itemktp->ktp;
+  			unlink($target_file);
+  		}
+  		$params['ktp'] = null;
+
+  		$this->db->where('id',$id);
+	  	$this->db->update('frm_peserta_pelatihan',$params);
+		$this->session->set_flashdata('warning','KTP berhasil dihapus');
+		redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);	  
+	}
+
+	function hapusttd(){
+	  	$id = $this->uri->segment(3);
+	  	$pelatihan_id = $this->uri->segment(5);
+		
+		//Action		  
+		$itemttd = $this->formluring_m->get($id)->row();
+  		if ($itemttd->ttd != null) {
+  			$target_file = 'assets/dist/files/formluring/ttd/'.$itemttd->ttd;
+  			unlink($target_file);
+  		}
+  		$params['ttd'] = null;
+
+  		$this->db->where('id',$id);
+	  	$this->db->update('frm_peserta_pelatihan',$params);
+		$this->session->set_flashdata('warning','TTD berhasil dihapus');
+		redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);	  
+	}
+
+	function hapusspt(){
+	  	$id = $this->uri->segment(3);
+	  	$pelatihan_id = $this->uri->segment(5);
+		
+		//Action		  
+		$itemspt = $this->formluring_m->get($id)->row();
+  		if ($itemspt->spt != null) {
+  			$target_file = 'assets/dist/files/formluring/spt/'.$itemspt->spt;
+  			unlink($target_file);
+  		}
+  		$params['spt'] = null;
+
+  		$this->db->where('id',$id);
+	  	$this->db->update('frm_peserta_pelatihan',$params);
+		$this->session->set_flashdata('warning','SPT berhasil dihapus');
+		redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);	  
 	}
 
 
