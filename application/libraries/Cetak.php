@@ -32,6 +32,17 @@ class Cetak {
 		
 	}
 
+	function exportToExcel ($konten,$filename,$data)
+	{
+		$content = $this->ci->load->view($konten,$data, true);
+		// test($content);
+		header("Content-Type: application/vnd.ms-excel");
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+		header("Cache-Control: private",false);
+        header("Content-disposition: attachment; filename=\"".$filename.".xls\"");
+		echo $content;
+	}
+
 
 
 }

@@ -414,6 +414,20 @@ class formluring extends CI_Controller {
 		redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);	  
 	}
 
+	function exportToExcel ()
+	{
+		$this->load->library("cetak");
+		$pelatihan_id = $this->uri->segment(3);
+		$konten = "formluring/template/excel/pelatihan-form";
+		$filename = "Data Pelatihan - ".$this->fungsi->pilihan_selected("tb_pelatihan_luring",$pelatihan_id)->row("deskripsi");
+		$data['judul'] = "Data Pelatihan - ".$this->fungsi->pilihan_selected("tb_pelatihan_luring",$pelatihan_id)->row("deskripsi");
+		$data['row'] = $this->formluring_m->getByPelatihan($pelatihan_id);
+
+		// test($data['row']);
+
+		$this->cetak->exportToExcel($konten,$filename,$data);
+	}
+
 
 
 

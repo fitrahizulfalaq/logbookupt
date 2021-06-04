@@ -4,6 +4,7 @@
     <div class="col-12">     
     <div class="col-12">     
       <div class="card-header">
+        <a href="<?=base_url("formluring/exportToExcel/".$row->row("pelatihan_id"));?>" class="btn btn-sm btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
         <a href="<?=base_url("formluring");?>" class="btn btn-sm btn-info float-right"><i class="fas fa-backward"></i> Kembali</a>
       </div>
 
