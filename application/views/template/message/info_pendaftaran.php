@@ -1,6 +1,6 @@
 <div class="alert alert-info alert-dismissible">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-  <h5><i class="icon fas fa-info"></i> Berkas yang disiapkan</h5>
+  <h5><i class="icon fas fa-info"></i> Berkas yang perlu disiapkan</h5>
   <p>
     1. <b>Foto Diri</b> (Boleh Selfie) <a href="https://go.uptkukm.id/contoh-foto" target="_blank"><i class="fas fa-file"></i></a><br>
     2. <b>Foto KTP</b> (Harus Jelas)  <a href="https://go.uptkukm.id/contoh-ktp" target="_blank"><i class="fas fa-file"></i></a><br>

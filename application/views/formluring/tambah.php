@@ -284,7 +284,7 @@
       <div class="input-group mb-3">
         <input type="file" name="ttd" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
-      <small>Buat dan simpan TTD Digital <a href="https://tools.uptkukm.id/ttd" target="_blank" class="badge badge-warning">disini.</a> Kemudian upload file</small>
+      <small><a href="https://tools.uptkukm.id/ttd" target="_blank" class="badge badge-warning">Klik untuk membuat.</a> Kemudian upload file</small>
       <?php echo form_error('foto')?>
     </div>            
     
@@ -293,7 +293,7 @@
       <div class="input-group mb-3">
         <input type="file" name="spt" class="form-control" placeholder="Ex: 4" accept=".pdf">
       </div>
-      <small>Harap pastikan file anda berupa *.pdf dan ukuran tidak melebihi 2Mb, Contoh SPT bisa dilihat <a href="https://go.uptkukm.id/contoh-spt" target="blank">disini</a> </small>
+      <small>Pastikan file berupa *.pdf dan tidak melebihi 2Mb. Boleh Menyusul. <a href="https://go.uptkukm.id/contoh-spt" target="blank" class="badge badge-warning">Klik untuk melihat contoh</a> </small>
       <?php echo form_error('spt')?>
     </div>
 
