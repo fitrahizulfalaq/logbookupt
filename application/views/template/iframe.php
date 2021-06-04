@@ -94,6 +94,7 @@
   $(document).ready(function(){
   $("form").on("submit", function(){
     $("#pageloader").fadeIn(3000);
+    document.getElementById("daftar-btn").innerHTML="Tunggu, Proses Upload";
   });//submit
 });//document ready
 </script>

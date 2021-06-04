@@ -263,7 +263,7 @@
       </div>
       <?php echo form_error('foto')?>
     </div>
-    
+
     <div class="form-group">
       <label>File KTP</label> <span class="badge badge-info">Maksimal 2 Mb (Format : .jpeg, .jpg, .png)</span>
       <div>
@@ -304,7 +304,7 @@
   </div>
   <!-- /.card-body -->
   <div class="card-footer">
-    <button type="submit" class="btn btn-success">Daftar</button>
+    <button type="submit" class="btn btn-success" id="daftar-btn">Daftar</button>
     <button type="reset" class="btn btn-danger">Kosongi</button>            
   </div>
 
