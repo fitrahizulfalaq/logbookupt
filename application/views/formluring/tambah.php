@@ -257,13 +257,37 @@
     <hr>
 
     <div class="form-group">
+      <label>Foto</label> <span class="badge badge-info">Maksimal 2Mb (Format : .jpeg, .jpg, .png)</span>
+      <div class="input-group mb-3">
+        <input type="file" name="foto" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
+      </div>
+      <?php echo form_error('foto')?>
+    </div>
+    
+    <div class="form-group">
       <label>File KTP</label> <span class="badge badge-info">Maksimal 2 Mb (Format : .jpeg, .jpg, .png)</span>
+      <div>
+        <img src="<?=site_url('assets/dist/files/formluring/')?>preview-ktp.jpeg" style="max-width: 300px"><br>
+      </div>
       <div class="input-group mb-3">
         <input type="file" name="ktp" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
       <?php echo form_error('ktp')?>
     </div>
 
+
+    <div class="form-group">
+      <label>File TTD</label> <span class="badge badge-info">Maksimal 2Mb (Format: .jpeg, .jpg, .png)</span>
+      <div>
+        <img src="<?=site_url('assets/dist/files/formluring/')?>preview-ttd.png" style="max-width: 300px"><br>
+      </div>
+      <div class="input-group mb-3">
+        <input type="file" name="ttd" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
+      </div>
+      <small>Buat dan simpan TTD Digital <a href="https://tools.uptkukm.id/ttd" target="_blank" class="badge badge-warning">disini.</a> Kemudian upload file</small>
+      <?php echo form_error('foto')?>
+    </div>            
+    
     <div class="form-group">
       <label>File SPT</label> <span class="badge badge-info">Maksimal 2Mb (Format : .pdf)</span>
       <div class="input-group mb-3">
@@ -273,22 +297,6 @@
       <?php echo form_error('spt')?>
     </div>
 
-    <div class="form-group">
-      <label>Foto</label> <span class="badge badge-info">Maksimal 2Mb (Format : .jpeg, .jpg, .png)</span>
-      <div class="input-group mb-3">
-        <input type="file" name="foto" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
-      </div>
-      <?php echo form_error('foto')?>
-    </div>
-
-    <div class="form-group">
-      <label>File TTD</label> <span class="badge badge-info">Maksimal 2Mb (Format: .jpeg, .jpg, .png)</span>
-      <div class="input-group mb-3">
-        <input type="file" name="ttd" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
-      </div>
-      <small>Buat dan simpan TTD Digital <a href="https://tools.uptkukm.id/ttd" target="_blank">disini.</a> Kemudian upload file</small>
-      <?php echo form_error('foto')?>
-    </div>            
     <div class="form-check">
       <input type="checkbox" class="form-check-input" required>
       <label class="form-check-label" for="exampleCheck1">Dengan ini saya menyatakan konfirmasi untuk mengikuti kegiatan sesuai jadwal yang ditetapkan.</label>
