@@ -241,7 +241,7 @@
     <div class="form-group">
       <label>Jumlah Tenaga Kerja</label>
       <div class="input-group mb-3">
-        <input type="number" name="jumlah_karyawan" class="form-control" placeholder="Ex: 4" value="<?= set_value('jumlah_karyawan'); ?>" required minlength="1" maxlength="6">
+        <input type="number" name="jumlah_karyawan" class="form-control" placeholder="Ex: 4" value="<?= set_value('jumlah_karyawan'); ?>" required min="0" max="100">
       </div>
       <?php echo form_error('jumlah_karyawan')?>
     </div>
@@ -249,7 +249,7 @@
     <div class="form-group">
       <label>Omset Per Bulan</label>
       <div class="input-group mb-3">
-        <input type="number" name="omset" class="form-control" placeholder="Ex: 900000000" value="<?= set_value('omset'); ?>" required minlength="6" maxlength="12">
+        <input type="number" name="omset" class="form-control" placeholder="Ex: 900000000" value="<?= set_value('omset'); ?>" required min="10000" max="950000000">
       </div>
       <?php echo form_error('omset')?>
     </div>
