@@ -7,5 +7,6 @@
     3. <b>SPT</b> UMKM (Format .pdf, bukan gambar). Boleh dilewati. <a href="https://go.uptkukm.id/contoh-spt" target="_blank"><i class="fas fa-file"></i></a><br>
     4. <b>TTD Digital</b> (Bukan foto di kertas). <a href="https://tools.uptkukm.id/ttd" target="_blank"><i>Klik untuk Membuat</i></a> <a href="https://go.uptkukm.id/contoh-ttd" target="_blank"><i class="fas fa-file"></i></a><br>
     <small>*Klik icon <i class="fas fa-file"></i> untuk melihat contoh</small><br>
+    <small>Gunakan Google Chrome agar optimal</small>
   </p>    
 </div>
