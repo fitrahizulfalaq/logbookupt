@@ -277,14 +277,14 @@
 
 
     <div class="form-group">
-      <label>File TTD</label> <span class="badge badge-info">Maksimal 2Mb (Format: .jpeg, .jpg, .png)</span>
+      <label>File TTD</label> <span class="badge badge-danger">Bukan Foto diatas Kertas</span>
       <div>
         <img src="<?=site_url('assets/dist/files/formluring/')?>preview-ttd.png" style="max-width: 300px"><br>
       </div>
       <div class="input-group mb-3">
         <input type="file" name="ttd" class="form-control" placeholder="Ex: 4" accept=".jpg,.png,.jpeg" required>
       </div>
-      <small><a href="https://tools.uptkukm.id/ttd" target="_blank" class="badge badge-warning">Klik untuk membuat.</a> Kemudian upload file</small>
+      <small><a href="https://tools.uptkukm.id/ttd" target="_blank" class="badge badge-warning">Klik untuk membuat bagi yang belum punya.</a></small>
       <?php echo form_error('foto')?>
     </div>            
     
