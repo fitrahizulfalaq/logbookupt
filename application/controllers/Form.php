@@ -122,6 +122,7 @@ class Form extends CI_Controller {
     public function cetakpdf()
     {
         $this->load->library("cetak");
+        $pelatihan_id = $this->uri->segment(5);
         $token = $this->uri->segment(3);
         $templateform = $this->fungsi->pilihan_selected("tb_pelatihan_luring",$pelatihan_id)->row("template"); 
         $konten = "formluring/template/pdf/".$templateform;
