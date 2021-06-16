@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/*
+	Modul ini digunakan untuk menambahkan formulir otomatis
+	Input -> masuk database -> manajemen data -> edit hapus
+	Yang fix itu formluring -> untuk kebutuhan kementrian
+	Yang versi umum masih dikembangkan
+*/
 class formluring extends CI_Controller {
 
 	public function __construct(){
@@ -19,6 +25,10 @@ class formluring extends CI_Controller {
         $this->templateadmin->load('template/dashboard','formluring/formluring_instruksi',$data);
     }
 
+    /*
+		@FitrahIzulFalaq
+		Perintah untuk menampilkan seluruh pelatihan
+    */
 	public function showPelatihan()
 	{		
 		$this->load->library("form_validation");
@@ -40,6 +50,10 @@ class formluring extends CI_Controller {
 		$this->templateadmin->load('template/dashboard','formluring/formluring_data',$data);
 	}
 
+	/*
+		@FitrahIzulFalaq
+		Perintah untuk menampilkan seluruh peserta pelatihan
+    */
 	public function showAll()
 	{		
 		$data['menu'] = "Data Formulir Pendaftaran ";
@@ -49,6 +63,10 @@ class formluring extends CI_Controller {
 		$this->templateadmin->load('template/dashboard','formluring/formluring_data',$data);
 	}
 
+	/*
+		@FitrahIzulFalaq
+		Perintah untuk menghapus data peserta pelatihan
+    */
 	function hapus(){
 	 	$id = $this->uri->segment(3);
 		$pelatihan_id = $this->uri->segment(5);
@@ -101,7 +119,10 @@ class formluring extends CI_Controller {
 		redirect('formluring/showPelatihan/'.$pelatihan_id);
 	}
 
-
+	/*
+		@FitrahIzulFalaq
+		Perintah untuk menampilkan seluruh pelatihan
+    */
 	function cetak() {
 		//Get Data
 		$token = $this->uri->segment(3);
@@ -235,6 +256,7 @@ class formluring extends CI_Controller {
 	public function edit($id)
 	{
     	$pelatihan_id = $this->uri->segment(5);
+    	$pelatihan_data = $this->fungsi->pilihan_selected("tb_pelatihan_luring",$pelatihan_id);
 		//Load librarynya dulu
 		$this->load->library('form_validation');
 		//Atur validasinya
@@ -254,8 +276,13 @@ class formluring extends CI_Controller {
 				$data['row'] = $query->row();
 				$data['menu'] = "Edit Data Modul";
 				$data['header_script'] = "summernote-header";
-				$data['footer_script'] = "summernote-footer";			
-				$this->templateadmin->load('template/dashboard','formluring/edit',$data);
+				$data['footer_script'] = "summernote-footer";
+				$kategori_form = $pelatihan_data->row("form");
+				if ($kategori_form == "kementerian") {
+					$this->templateadmin->load('template/dashboard','formluring/edit',$data);
+				} else {
+					$this->templateadmin->load('template/dashboard','formluring/edit_'.$pelatihan_data->row("template"),$data);
+				}			
 			} else {
 				echo "<script>alert('Data Tidak Ditemukan');</script>";
 				redirect('formluring/showPelatihan/'.$pelatihan_id);
@@ -344,6 +371,13 @@ class formluring extends CI_Controller {
 	    }
 	}
 
+
+	/*
+		@FitrahIzulFalaq
+		Menghapus Atribusi File di Form
+		START
+    */
+
 	function hapusfoto(){
 	  	$id = $this->uri->segment(3);
 	  	$pelatihan_id = $this->uri->segment(5);
@@ -416,11 +450,22 @@ class formluring extends CI_Controller {
 		redirect('formluring/edit/'.$id.'/pelatihan/'.$pelatihan_id);	  
 	}
 
+	/*
+		END
+		@FitrahIzulFalaq
+    */
+
+
+	/*
+		@FitrahIzulFalaq
+		Export to Excel menyesuiakn dengan tema yang dibutuhkan
+    */
 	function exportToExcel ()
 	{
 		$this->load->library("cetak");
 		$pelatihan_id = $this->uri->segment(3);
-		$konten = "formluring/template/excel/pelatihan-form";
+		$template = $this->fungsi->pilihan_selected("tb_pelatihan_luring",$pelatihan_id)->row("template");
+		$konten = "formluring/template/excel/".$template;
 		$filename = "Data Pelatihan - ".$this->fungsi->pilihan_selected("tb_pelatihan_luring",$pelatihan_id)->row("deskripsi");
 		$data['judul'] = "Data Pelatihan - ".$this->fungsi->pilihan_selected("tb_pelatihan_luring",$pelatihan_id)->row("deskripsi");
 		$data['row'] = $this->formluring_m->getByPelatihan($pelatihan_id);

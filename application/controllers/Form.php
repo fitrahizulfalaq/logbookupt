@@ -51,7 +51,7 @@ class Form extends CI_Controller {
                 } else {
                     $pesan = $this->upload->display_errors();
                     $this->session->set_flashdata('danger',$pesan);
-                    redirect('form/culinarybc');
+                    redirect('form/daftarluring/');
                 }                           
             }
 
@@ -69,7 +69,7 @@ class Form extends CI_Controller {
                 } else {
                         $pesan = $this->upload->display_errors();
                         $this->session->set_flashdata('danger',$pesan);
-                        redirect('form/culinarybc');
+                        redirect('form/daftarluring/');
                 }
             }
 
@@ -87,7 +87,7 @@ class Form extends CI_Controller {
                 } else {
                     $pesan = $this->upload->display_errors();
                     $this->session->set_flashdata('danger',$pesan);
-                    redirect('form/culinarybc');
+                    redirect('form/daftarluring/');
                 }                           
             }
 
@@ -105,7 +105,7 @@ class Form extends CI_Controller {
                 } else {
                     $pesan = $this->upload->display_errors();
                     $this->session->set_flashdata('danger',$pesan);
-                    redirect('form/culinarybc');
+                    redirect('form/daftarluring/');
                 }                           
             }                 
              
@@ -113,7 +113,7 @@ class Form extends CI_Controller {
             if ($this->db->affected_rows() > 0) {
                 $this->session->set_flashdata('success','Pendaftaran Berhasil... <br><h3><a href="'.base_url("publik/cetakpdf/".$post['nik']."/pelatihan/".$post['pelatihan_id']).'" target="blank"> Silahkan Klik untuk Mengunduh Formulir Anda</a></h3>');
             }           
-            redirect('form/culinarybc');                
+            redirect('form/daftarluring/');                
         }
     }
 
@@ -232,7 +232,7 @@ class Form extends CI_Controller {
                 } else {
                     $pesan = $this->upload->display_errors();
                     $this->session->set_flashdata('danger',$pesan);
-                    redirect('publik/daftarluring');
+                    redirect('form/culinarybc/');
                 }                           
             }
 
@@ -250,7 +250,7 @@ class Form extends CI_Controller {
                 } else {
                     $pesan = $this->upload->display_errors();
                     $this->session->set_flashdata('danger',$pesan);
-                    redirect('publik/daftarluring');
+                    redirect('form/culinarybc/');
                 }                           
             }                 
              
@@ -258,7 +258,7 @@ class Form extends CI_Controller {
             if ($this->db->affected_rows() > 0) {
                 $this->session->set_flashdata('success','Pendaftaran Berhasil... <br><h3><a href="'.base_url("form/cetakpdf/".$post['nik']."/pelatihan/".$post['pelatihan_id']).'" target="blank"> Silahkan Klik untuk Mengunduh Formulir Anda</a></h3>');
             }           
-            redirect('publik/daftarluring');                
+            redirect('form/culinarybc/');                
         }
     }
 

@@ -35,7 +35,7 @@
             </div>
 
             <div class="form-group">
-              <label>Template Word</label>
+              <label>Template</label>
               <div class="input-group mb-3">
                 <input type="text" class="form-control" name="template" placeholder="Ex: digitalisasi-umkm" value="<?= set_value('template');?>">
               <?php echo form_error('template')?>
