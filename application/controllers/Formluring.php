@@ -168,7 +168,9 @@ class formluring extends CI_Controller {
 	{
 		$this->load->library("cetak");
 		$token = $this->uri->segment(3);
-		$konten = "formluring/template/pdf/formluringttd";
+		$pelatihan_id = $this->uri->segment(5);
+		$templateform = $this->fungsi->pilihan_selected("tb_pelatihan_luring",$pelatihan_id)->row("template"); 
+		$konten = "formluring/template/pdf/".$templateform;
 		$filename = "Formulir Pendaftaran - ".$this->fungsi->pilihan_selected("frm_peserta_pelatihan",$token)->row("nama");
 		$data['row'] = $this->fungsi->pilihan_selected("frm_peserta_pelatihan",$token)->row();
 		
