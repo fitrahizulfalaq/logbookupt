@@ -11,5 +11,6 @@
 	  <small><?= $data->pimpinan?></small>
 	</p>    
   <?php }?>
-  <?= $row->result() == null ? "Tidak ada agenda" : ""?>  
+  <?= $row->result() == null ? "Tidak ada agenda" : ""?><br>
+  Gajian - <?= cal_days_in_month(CAL_GREGORIAN,date("m"),date("Y")) - date("d"); ?> hari  
 </div>
