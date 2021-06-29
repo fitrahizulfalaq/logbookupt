@@ -125,8 +125,10 @@
               </li>
             </ul>
           </li>
-
-          
+          <li class="nav-item">            
+            <a href="<?=site_url('sibantu')?>" class="nav-link <?=$this->uri->segment(1) == 'sibantu' ? "active" : ""?>">
+            <i class="nav-icon fas fa-book"></i><p>Permohonan</p></a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

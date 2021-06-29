@@ -150,4 +150,30 @@ class formluring_m extends CI_Model {
 	  $this->db->where('id',$params['id']);
 	  $this->db->update('frm_peserta_pelatihan',$params);	  	 		  	 		   			
 	}
+
+	function siBantuSave($post)
+	{
+
+	  $params['id'] =  "";
+	  $params['nama'] =  strtoupper($post['nama']);   
+	  $params['jabatan'] =  strtoupper($post['jabatan']);   
+	  $params['nama_usaha'] =  strtoupper($post['nama_usaha']);   
+	  $params['domisili_usaha'] =  strtoupper($post['domisili_usaha']);   
+	  $params['kelurahan'] =  strtoupper($post['kelurahan']);   
+	  $params['kecamatan'] =  strtoupper($post['kecamatan']);   
+	  $params['kota'] =  strtoupper($post['kota']);   
+	  $params['hp'] =  $post['hp'];   
+	  $params['email'] =  $post['email'];   
+	  $params['deskripsi_usaha'] =  $post['deskripsi_usaha'];   
+	  $params['masalah'] =  $post['masalah'];   
+	  $params['solusi'] =  $post['solusi'];   
+	  $params['foto'] =  $post['foto'];
+	  $params['ttd'] =  $post['ttd'];
+	  $params['status'] =  "pendaftaran";
+	  $params['kode'] =  $post['hp'].date("ymd");
+	  $params['created'] =  date("Y:m:d:h:i:sa");
+
+	  $this->db->insert('frm_permohonan',$params);	  	 		  	 		   			
+	}
+	
 }

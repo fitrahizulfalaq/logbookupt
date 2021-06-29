@@ -191,8 +191,6 @@ class Form extends CI_Controller {
             echo "<script>alert('Data Tidak Ditemukan');</script>";
             echo "<script>window.location='".site_url('publik')."';</script>";
         }
-        
-              
     }
 
     public function culinarybc()
@@ -259,6 +257,92 @@ class Form extends CI_Controller {
                 $this->session->set_flashdata('success','Pendaftaran Berhasil... <br><h3><a href="'.base_url("form/cetakpdf/".$post['nik']."/pelatihan/".$post['pelatihan_id']).'" target="blank"> Silahkan Klik untuk Mengunduh Formulir Anda</a></h3>');
             }           
             redirect('form/culinarybc/');                
+        }
+    }
+
+    public function siBantu()
+    {
+        //Load librarynya dulu
+        $this->load->library('form_validation');
+        $this->load->model('sibantu_m');
+        //Atur validasinya
+        $this->form_validation->set_rules('nama', 'nama', 'min_length[3]|max_length[50]');
+        $this->form_validation->set_rules('hp', 'hp', 'min_length[10]|max_length[12]');
+
+        //Pesan yang ditampilkan
+        $this->form_validation->set_message('min_length', '{field} Setidaknya  minimal {param} karakter.');
+        $this->form_validation->set_message('max_length', '{field} Seharusnya maksimal {param} karakter.');
+        $this->form_validation->set_message('is_unique', 'Data sudah ada');
+        //Tampilan pesan error
+        $this->form_validation->set_error_delimiters('<span class="badge badge-danger">', '</span>');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['menu'] = "Permohonan Bimbingan & Konsultasi";
+
+            $this->templateadmin->load('template/iframe','formluring/form_sibantu',$data);
+        } else {
+            $post = $this->input->post(null, TRUE);                         
+
+            //CEK GAMBAR
+            $config['upload_path']          = 'assets/dist/files/formluring/foto/';
+            $config['allowed_types']        = 'jpg|png|jpeg';
+            $config['max_size']             = 6000;
+            $config['file_name']            = "siBantu - " . $post['hp'].date("ymd");
+
+            $this->load->library('upload', $config);
+            if (@$_FILES['foto']['name'] != null) {                     
+                    $this->upload->initialize($config);
+                if ($this->upload->do_upload('foto')) {
+                    $post['foto'] = $this->upload->data('file_name');
+                } else {
+                    $pesan = $this->upload->display_errors();
+                    $this->session->set_flashdata('danger',$pesan);
+                    redirect('form/siBantu/');
+                }                           
+            }
+
+            //CEK GAMBAR
+            $config4['upload_path']          = 'assets/dist/files/formluring/ttd/';
+            $config4['allowed_types']        = 'jpg|png|jpeg';
+            $config4['max_size']             = 6000;
+            $config4['file_name']            = "siBantu - " . $post['hp'].date("ymd");
+
+                $upload_4 = $this->load->library('upload', $config4);
+                if (@$_FILES['ttd']['name'] != null) {                     
+                        $this->upload->initialize($config4);
+                    if ($this->upload->do_upload('ttd')) {
+                        $post['ttd'] = $this->upload->data('file_name');
+                } else {
+                    $pesan = $this->upload->display_errors();
+                    $this->session->set_flashdata('danger',$pesan);
+                    redirect('form/siBantu/');
+                }                           
+            }                 
+             
+            $this->sibantu_m->simpan($post);
+            if ($this->db->affected_rows() > 0) {
+                $this->session->set_flashdata('success','Pendaftaran Berhasil... <br><h3><a href="'.base_url("form/siBantuPrint/".$post['hp'].date("ymd")).'" target="blank"> Silahkan Klik untuk Mengunduh Formulir Anda</a></h3>');
+            }           
+            redirect('form/siBantu/');                
+        }
+    }
+
+    // Untuk Mendownload formulir secara langsung
+    // Menggunakan nik dan pelatihan id
+    public function siBantuPrint()
+    {
+        $this->load->library("cetak");
+        $token = $this->uri->segment(3);
+        $konten = "formluring/template/pdf/siBantu_form";
+        $getData = $this->fungsi->pilihan_advanced("frm_permohonan","kode",$token);
+        $filename = "Formulir Permohonan - ".$getData->row("nama");
+        $data['row'] = $getData->row();
+
+        if ($getData->num_rows() != null) {
+            $this->cetak->formLuring($konten,$filename,$data);
+        } else {
+            echo "<script>alert('Data Tidak Ditemukan');</script>";
+            echo "<script>window.location='".site_url('publik')."';</script>";
         }
     }
 
