@@ -111,6 +111,7 @@
             <i class="nav-icon fas fa-book"></i><p>Presensi</p></a>
           </li>
           <?php } ?>
+          <?php if ($this->session->tipe_user > 1) { ?>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link <?=$this->uri->segment(1) == 'formluring' || $this->uri->segment(1) == "pelatihanluring" ? "active" : ""?>"><i class="nav-icon fas fa-users"></i><p>Pelatihan<i class="right fas fa-angle-down"></i></p></a>
             <ul class="nav nav-treeview">              
@@ -129,6 +130,7 @@
             <a href="<?=site_url('sibantu')?>" class="nav-link <?=$this->uri->segment(1) == 'sibantu' ? "active" : ""?>">
             <i class="nav-icon fas fa-book"></i><p>Permohonan</p></a>
           </li>
+          <?php } ?>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
