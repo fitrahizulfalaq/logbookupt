@@ -29,7 +29,8 @@ class Log_book_m extends CI_Model {
 		$this->db->from('tb_user');
 		$this->db->where('status','1');
 		$this->db->where('id !=',$this->session->id);
-		$this->db->order_by([('nama','ASC'),('status','asc')]);
+		$this->db->order_by('nama','ASC');
+		$this->db->order_by('status','ASC');
 		$query = $this->db->get();
 		return $query;
 	}
