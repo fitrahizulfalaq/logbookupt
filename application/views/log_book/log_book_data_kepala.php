@@ -6,9 +6,56 @@
       <div class="card-header">          
         <a href="<?=base_url("");?>" class="btn btn-info float-right btn-sm"><i class="fas fa-backward"></i> Kembali</a>
       </div>
+      <?php $this->load->view("template/message/status_log_book");?>
       <div class="card-header bg-primary">
-        <h3 class="card-title">Laporan Log Book Hari Ini (<?= date("d/m/Y")?>)</h3>
-      </div>        
+        <h3 class="card-title">Log Book Saya</h3>
+      </div>
+      <div class="card">        
+        <div class="card-body">
+          <div class="table-responsive">
+          <table class="table table-bordered table-striped" id="list">
+            <thead>
+              <tr>
+                <th width="5%">No</th>
+                <th width="10%">Tanggal</th>
+                <th width="50%">Target</th>
+                <th width="50%">Realisasi</th>
+                <th width="20%">#</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+                $no = 1;
+                foreach ($row_self->result() as $key => $data) {;
+              ?>
+                <tr>
+                  <td scope="row">
+                    <p><?= $no++?></p>
+                  </td>                  
+                  <td scope="row">
+                    <p><?= date("d - m - Y",strtotime($data->tgl))?></p>
+                  </td>
+                  <td scope="row">
+                    <p><?= $data->target?></p>
+                  </td>
+                  <td scope="row">
+                    <p><?= $data->realisasi?></p>
+                  </td>
+                  <td>
+                    <a href="<?= site_url('log_book/edit/'.$data->id);?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                  </td>
+                </tr>
+              <?php }?>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <div class="card-header bg-primary">
+        <h3 class="card-title">Laporan Log Book Pegawai Hari Ini (<?= date("d/m/Y")?>)</h3>
+      </div>
+      <!-- /.card -->
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
