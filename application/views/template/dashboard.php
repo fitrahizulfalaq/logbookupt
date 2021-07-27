@@ -111,7 +111,7 @@
             <i class="nav-icon fas fa-book"></i><p>Presensi</p></a>
           </li> -->
           <?php } ?>
-          <?php if ($this->session->tipe_user >= 1) { ?>
+          <?php if ($this->fungsi->hitung_rows("akses_agenda","user_id",$this->session->id) != null or $this->session->tipe_user == '4') { ?>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link <?=$this->uri->segment(1) == 'formluring' || $this->uri->segment(1) == "pelatihanluring" ? "active" : ""?>"><i class="nav-icon fas fa-users"></i><p>Pelatihan<i class="right fas fa-angle-down"></i></p></a>
             <ul class="nav nav-treeview">              
