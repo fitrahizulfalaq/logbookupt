@@ -106,12 +106,12 @@
             <a href="<?=site_url('agenda')?>" class="nav-link <?=$this->uri->segment(1) == 'agenda' ? "active" : ""?>">
             <i class="nav-icon fas fa-book"></i><p>Agenda</p></a>
           </li>
-          <li class="nav-item">            
+          <!-- <li class="nav-item">            
             <a href="<?=site_url('presensi')?>" class="nav-link <?=$this->uri->segment(1) == 'presensi' ? "active" : ""?>">
             <i class="nav-icon fas fa-book"></i><p>Presensi</p></a>
-          </li>
+          </li> -->
           <?php } ?>
-          <?php if ($this->session->tipe_user > 1) { ?>
+          <?php if ($this->session->tipe_user >= 1) { ?>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link <?=$this->uri->segment(1) == 'formluring' || $this->uri->segment(1) == "pelatihanluring" ? "active" : ""?>"><i class="nav-icon fas fa-users"></i><p>Pelatihan<i class="right fas fa-angle-down"></i></p></a>
             <ul class="nav nav-treeview">              
