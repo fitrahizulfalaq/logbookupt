@@ -6,7 +6,36 @@
       <div class="card-header">          
         <a href="<?=base_url("");?>" class="btn btn-info float-right btn-sm"><i class="fas fa-backward"></i> Kembali</a>
       </div>
-      <?php $this->load->view("template/message/status_log_book"); ?>  
+      <?php $this->load->view("template/message/status_log_book"); ?>
+      <form action="<?= base_url("log_book/pimpinan/")?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+        <input type="hidden" name="id" value="<?= $this->session->id ?>">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+          </div>
+          <select name="bulan" class="form-control form-control-sm" required>
+            <option value="">Bulan :</option>
+            <option value="01">Januari</option>
+            <option value="02">Februari</option>
+            <option value="03">Maret</option>
+            <option value="04">April</option>
+            <option value="05">Mei</option>
+            <option value="06">Juni</option>
+            <option value="07">Juli</option>
+            <option value="08">Agustus</option>
+            <option value="09">September</option>
+            <option value="10">Oktober</option>
+            <option value="11">November</option>
+            <option value="12">Desember</option>
+          </select>
+          <select name="tahun" class="form-control form-control-sm" required>
+            <option value="">Tahun</option>
+            <?php $thn_skr = date('Y'); for ($x = $thn_skr; $x >= 2018; $x--) {?>
+                <option value="<?php echo $x ?>"><?php echo $x ?></option>
+            <?php } ?>
+          </select>
+          <button type="submit" class="btn btn-sm btn-success"><i class="fas fa-eye"></i> Filter</button>
+        </div>  
       <div class="card-header bg-primary">
         <h3 class="card-title">Laporan Log Book Hari Ini (<?= date("d/m/Y")?>)</h3>
       </div>

@@ -85,7 +85,7 @@ class Log_book extends CI_Controller {
 	public function kepala()
 	{		
 		$post = $this->input->post(null, TRUE);
-		
+
 		// Cek Admin
 		$tipe_user = $this->session->tipe_user;
 		$previllage = 3;
@@ -108,6 +108,8 @@ class Log_book extends CI_Controller {
 
 	public function pimpinan()
 	{		
+		$post = $this->input->post(null, TRUE);
+		
 		// Cek Admin
 		$tipe_user = $this->session->tipe_user;
 		$previllage = 2;
@@ -118,7 +120,12 @@ class Log_book extends CI_Controller {
 		}
 
 		$data['menu'] = "Catatan Log Book";
-		$data['row'] = $this->log_book_m->get_bulan_sekarang($id);
+		if ($post == null) {
+			$data['row'] = $this->log_book_m->get_bulan_sekarang($id);
+		} else {
+			$data['row'] = $this->log_book_m->get_spesifik($this->session->id, $post['tahun'], $post['bulan']);			
+		}
+		
 		$data['row_user'] = $this->log_book_m->get_user_by_pimpinan($this->fungsi->pilihan_advanced("tb_pimpinan","user_id",$this->session->id)->row("id") );		
 		$data['status_log_book'] = $this->log_book_m->cek_status_harian($id);
 		$this->templateadmin->load('template/dashboard','log_book/log_book_data_pimpinan',$data);
