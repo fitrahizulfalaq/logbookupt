@@ -32,6 +32,36 @@ class Log_book extends CI_Controller {
 		$this->templateadmin->load('template/dashboard','log_book/log_book_data',$data);
 	}
 
+	public function filter()
+	{		
+		$post = $this->input->post(null, TRUE);
+
+		if ($post == null ) {
+			redirect('log_book');
+		}
+
+		$tahun = $post['tahun'];
+		$bulan = $post['bulan'];
+
+		// Cek Admin
+		$tipe_user = $this->session->tipe_user;
+		$previllage = 2;
+		if ($tipe_user < $previllage) {
+			$id = $this->session->id;
+		} elseif ($tipe_user == '2') {
+			redirect('log_book/pimpinan/');
+		} elseif ($tipe_user == '3') {
+			redirect('log_book/kepala/');
+		} elseif ($tipe_user == '4') {
+			redirect('log_book/admin/');
+		}
+
+		$data['menu'] = "Kegiatan Harian Bulan ".$bulan." Tahun ".$tahun;
+		$data['row'] = $this->log_book_m->get_spesifik($id, $tahun, $bulan);
+		$data['status_log_book'] = $this->log_book_m->cek_status_harian($id);
+		$this->templateadmin->load('template/dashboard','log_book/log_book_data',$data);
+	}
+
 	public function admin()
 	{		
 		// Cek Admin
