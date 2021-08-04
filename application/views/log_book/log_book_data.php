@@ -6,7 +6,19 @@
       <div class="card-header">          
         <a href="<?=base_url("");?>" class="btn btn-info float-right btn-sm"><i class="fas fa-backward"></i> Kembali</a>
       </div>
-      <?php $this->load->view("template/message/status_log_book"); ?>
+      <?php $this->load->view("template/message/status_log_book"); ?>      
+      <div class="info-box">
+        <span class="info-box-icon bg-info"><i class="fas fa-book"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Total Logbook</span>
+          <span class="info-box-number"><?= $this->fungsi->hitung_rows("tb_log_book","user_id",$this->session->id)?></span>
+        </div>
+        <span class="info-box-icon bg-info"><i class="far fa-gem"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">UPT Poin</span>
+          <span class="info-box-number"><?= $this->fungsi->hitung_nilai_multiple("tb_poin","nilai","user_id",$this->session->id,"kategori_penilaian","1") == null ? 0 : $this->fungsi->hitung_nilai("tb_poin","nilai","user_id",$this->session->id)?></span>
+        </div>
+      </div>
       <form action="<?= base_url("log_book/filter/")?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
         <input type="hidden" name="id" value="<?= $this->session->id ?>">
         <div class="input-group mb-3">
