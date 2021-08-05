@@ -20,8 +20,9 @@
       "autoWidth": true,
       "searching": true,
       "info": true,
-      "ordering": false,
+      "ordering": true,
       "lengthChange": true,
+      "order": [[ 1, "desc" ], [ 0, "asc" ]],
       "lengthMenu": [ [10, 20, 30, 50, 100], [10, 20, 30, 50, 100] ],
     });                
   });
