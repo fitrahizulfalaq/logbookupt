@@ -88,7 +88,7 @@
           <table class="table table-bordered table-striped" id="list_admin">
             <thead>
               <tr>
-                <th width="5%">No</th>
+                <!-- <th width="5%">No</th> -->
                 <th width="15%">Nama</th>
                 <th width="30%">Target</th>
                 <th width="30%">Realisasi</th>
@@ -101,9 +101,9 @@
                 foreach ($row_user->result() as $key => $data) {;
               ?>
                 <tr>
-                  <td scope="row">
+<!--                   <td scope="row">
                     <p><?= $no++?></p>
-                  </td>                  
+                  </td> -->                  
                   <td scope="row">
                     <p><?= $data->nama?></p>
                   </td>
